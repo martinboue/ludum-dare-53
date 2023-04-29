@@ -23,6 +23,10 @@ window/size/mode=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/vehicle_controller_2d/plugin.cfg")
+
 [input]
 
 steer_right={

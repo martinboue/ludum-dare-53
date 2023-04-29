@@ -36,4 +36,5 @@ vertical_alignment = 1
 script = ExtResource("4_7jpoi")
 
 [node name="WinMenu" parent="." instance=ExtResource("5_dymcs")]
+visible = false
 size_flags_vertical = 1
