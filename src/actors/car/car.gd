@@ -7,6 +7,7 @@ extends RigidBody2D
 @onready var drive_wheel := $DriveWheel
 
 @onready var drifter = $Drifter
+@onready var trailer_drifter = $Trailer/Drifter
 
 # Sources :
 # https://kidscancode.org/godot_recipes/3.x/kyn/rigidbody2d/
@@ -15,7 +16,7 @@ extends RigidBody2D
 var wheel_base := 70
 # Maximum steering angle of front wheel in degrees
 var max_steering_angle := 30.0
-var engine_power := 100
+var engine_power := 200
 var steer_power := 5000
 var steer_scale := 400.0
 
@@ -28,8 +29,10 @@ func _physics_process(delta):
 		drive_wheel.position.rotated(rotation))
 	if acceleration != 0:
 		drifter.drift()
+		trailer_drifter.drift()
 	else: 
-		drifter.stop_drit()
+		drifter.stop_drift()
+		trailer_drifter.stop_drift()
 
 	# Steering
 	var turn := Input.get_axis("steer_left", "steer_right")

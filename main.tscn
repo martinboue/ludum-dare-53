@@ -1,16 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://c54qgrbj1u2ky"]
+[gd_scene load_steps=3 format=3 uid="uid://cqy66shbill17"]
 
-[ext_resource type="PackedScene" uid="uid://wr5v2amc3ljx" path="res://src/actors/trailer/trailer.tscn" id="2_bpfrt"]
-[ext_resource type="PackedScene" uid="uid://b3oilgucxs8uq" path="res://src/actors/car/car.tscn" id="2_fkhnd"]
+[ext_resource type="PackedScene" uid="uid://u6hb1t17ykss" path="res://src/actors/level/level.tscn" id="3_xwjqm"]
+[ext_resource type="Script" path="res://src/actors/debug/fps.gd" id="4_ef825"]
 
 [node name="Main" type="Node2D"]
 
-[node name="Car" parent="." instance=ExtResource("2_fkhnd")]
-position = Vector2(192, 324)
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Camera2D" type="Camera2D" parent="Car"]
-process_callback = 0
-position_smoothing_enabled = true
+[node name="Fps" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("4_ef825")
 
-[node name="Trailer" parent="." instance=ExtResource("2_bpfrt")]
-position = Vector2(665, 239)
+[node name="Level" parent="." instance=ExtResource("3_xwjqm")]
