@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://do4dsj8afe508"]
+[gd_scene load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://src/actors/drift_mark.gd" id="1_ihldl"]
+[ext_resource type="Script" path="res://src/actors/car/drift/drift_mark.gd" id="1_ihldl"]
 
 [node name="DriftMarker" type="Marker2D"]
 script = ExtResource("1_ihldl")

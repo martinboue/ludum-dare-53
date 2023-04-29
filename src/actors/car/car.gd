@@ -1,10 +1,12 @@
-# Rigid car
+# Car
 extends RigidBody2D
 
 # Steering wheel = roue directrice
 @onready var steering_wheel := $SteeringWheel
 # DriveWheel = roue motrice
 @onready var drive_wheel := $DriveWheel
+
+@onready var drifter = $Drifter
 
 # Sources :
 # https://kidscancode.org/godot_recipes/3.x/kyn/rigidbody2d/
@@ -24,6 +26,10 @@ func _physics_process(delta):
 	var acceleration := Input.get_axis("brake", "accelerate")
 	apply_impulse(transform.x * engine_power * acceleration, 
 		drive_wheel.position.rotated(rotation))
+	if acceleration != 0:
+		drifter.drift()
+	else: 
+		drifter.stop_drit()
 
 	# Steering
 	var turn := Input.get_axis("steer_left", "steer_right")

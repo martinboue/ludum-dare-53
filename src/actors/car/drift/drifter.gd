@@ -1,8 +1,6 @@
 extends Node2D
 
-var drift_marker_scene = preload("res://src/actors/drift_mark.tscn")
-
-@onready var timer = $Timer
+var drift_marker_scene = preload("res://src/actors/car/drift/drift_mark.tscn")
 
 func drift():
 	var current_drift_marks = get_tree().get_nodes_in_group("drift_marks")

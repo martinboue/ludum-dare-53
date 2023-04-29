@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://wr5v2amc3ljx"]
+[gd_scene load_steps=4 format=3 uid="uid://wr5v2amc3ljx"]
 
+[ext_resource type="Script" path="res://src/actors/trailer/trailer.gd" id="1_gna1w"]
 [ext_resource type="Texture2D" uid="uid://bypc7bif3liy5" path="res://src/actors/trailer/trailer.png" id="2_qn46r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hg81q"]
@@ -8,8 +9,7 @@ size = Vector2(86, 65)
 [node name="Trailer" type="RigidBody2D"]
 position = Vector2(22, 0)
 rotation = 1.5708
-mass = 0.1
-inertia = 10.0
+script = ExtResource("1_gna1w")
 
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
 position = Vector2(-9.53674e-07, -46)

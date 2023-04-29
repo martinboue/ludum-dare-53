@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://n2cgjcsoswvl"]
+[gd_scene load_steps=2 format=3 uid="uid://dfntrurleh6e"]
 
-[ext_resource type="Script" path="res://src/actors/drifter.gd" id="1_jed2a"]
+[ext_resource type="Script" path="res://src/actors/car/drift/drifter.gd" id="1_varmn"]
 
 [node name="Drifter" type="Node2D"]
-script = ExtResource("1_jed2a")
+script = ExtResource("1_varmn")
 
 [node name="FrontRight" type="Marker2D" parent="." groups=["wheel_markers"]]
 position = Vector2(-20, -50)
