@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://c54qgrbj1u2ky"]
+[gd_scene load_steps=3 format=3 uid="uid://c54qgrbj1u2ky"]
 
-[ext_resource type="PackedScene" uid="uid://d00jqnf2g7e2h" path="res://src/actors/car.tscn" id="1_5s0gf"]
+[ext_resource type="PackedScene" uid="uid://wr5v2amc3ljx" path="res://src/actors/trailer/trailer.tscn" id="2_6s6mv"]
+[ext_resource type="PackedScene" uid="uid://lk614j4ahath" path="res://src/actors/rigid_car/rigid_car.tscn" id="2_hopj3"]
 
 [node name="Main" type="Node2D"]
 
-[node name="car" parent="." instance=ExtResource("1_5s0gf")]
-position = Vector2(449, 416)
+[node name="Trailer" parent="." instance=ExtResource("2_6s6mv")]
+position = Vector2(677, 469)
+
+[node name="RigidCar" parent="." instance=ExtResource("2_hopj3")]
+position = Vector2(329, 347)
