@@ -10,3 +10,4 @@
 [node name="Level" parent="." instance=ExtResource("3_xwjqm")]
 
 [connection signal="new_objective" from="Level" to="HUD" method="_on_level_new_objective"]
+[connection signal="won" from="Level" to="HUD" method="_on_level_won"]

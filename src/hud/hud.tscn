@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmjc5qdu0mx40"]
+[gd_scene load_steps=6 format=3 uid="uid://bmjc5qdu0mx40"]
 
 [ext_resource type="Script" path="res://src/actors/debug/fps.gd" id="1_2m8oa"]
 [ext_resource type="Script" path="res://src/hud/hud.gd" id="1_dltuo"]
 [ext_resource type="FontFile" uid="uid://58iqncipx06b" path="res://src/menus/font.ttf" id="2_syf02"]
 [ext_resource type="Script" path="res://src/hud/announcement/announcement.gd" id="4_7jpoi"]
+[ext_resource type="PackedScene" uid="uid://bjun55yj22nvs" path="res://src/menus/win_menu/win_menu.tscn" id="5_dymcs"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_dltuo")
@@ -33,3 +34,6 @@ text = "Move your ass, go get your cargo!"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("4_7jpoi")
+
+[node name="WinMenu" parent="." instance=ExtResource("5_dymcs")]
+size_flags_vertical = 1

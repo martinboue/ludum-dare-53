@@ -1,0 +1,78 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjun55yj22nvs"]
+
+[ext_resource type="FontFile" uid="uid://58iqncipx06b" path="res://src/menus/font.ttf" id="1_7vmpq"]
+[ext_resource type="Script" path="res://src/menus/win_menu/win_menu.gd" id="1_u3nga"]
+
+[node name="WinMenu" type="ColorRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -300.0
+offset_right = 225.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.12549, 0.0431373, 0.00392157, 1)
+script = ExtResource("1_u3nga")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.5
+offset_top = -259.0
+offset_right = 171.5
+offset_bottom = -203.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_7vmpq")
+theme_override_font_sizes/font_size = 50
+text = "Not bad for a beginner"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.5
+offset_top = 226.0
+offset_right = 112.5
+offset_bottom = 275.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_7vmpq")
+theme_override_font_sizes/font_size = 30
+text = "TRY TO DO BETTER"
+
+[node name="Subtext" type="Label" parent="RestartButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.5
+offset_top = -72.5
+offset_right = 171.5
+offset_bottom = -16.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_7vmpq")
+theme_override_font_sizes/font_size = 20
+text = "if you think you can..."
+horizontal_alignment = 1
+vertical_alignment = 1
