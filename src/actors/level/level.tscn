@@ -74,7 +74,7 @@ next_checkpoint = NodePath("../Checkpoint2")
 position = Vector2(870, -698)
 
 [node name="EnemyCar" parent="." instance=ExtResource("2_a8fq7")]
-position = Vector2(2811, -907)
+position = Vector2(181, 396)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="EnemyCar"]
@@ -84,3 +84,6 @@ texture = ExtResource("9_jy7v0")
 [node name="TeslaAutoPilot" type="Node" parent="EnemyCar" node_paths=PackedStringArray("target")]
 script = ExtResource("10_ngrml")
 target = NodePath("../../Player")
+
+[node name="Gunner" parent="EnemyCar" instance=ExtResource("3_oixce")]
+position = Vector2(-26, 0)

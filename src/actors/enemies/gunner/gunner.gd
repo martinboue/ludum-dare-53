@@ -17,13 +17,16 @@ func _physics_process(_delta: float) -> void:
 	look_at(target.global_position)
 		
 	var dist := target.global_position.distance_to(global_position)
-	if dist > stop_distance and not get_parent() is Car:
+	if dist > stop_distance and self_controlled():
 		velocity = speed * global_position.direction_to(target.global_position)
 	elif dist < stop_distance:
 		velocity = Vector2.ZERO
 		if fire_cooldown.is_stopped():
 			fire()
 	move_and_slide()
+	
+func self_controlled()-> bool:
+	return not get_parent() is Car
 
 func fire() -> void:
 	fire_cooldown.start()
