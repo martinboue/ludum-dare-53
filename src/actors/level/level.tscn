@@ -35,6 +35,9 @@ antialiased = true
 position = Vector2(542, 340)
 rotation = -0.961676
 
+[node name="HitBox" parent="Player" index="5"]
+collision_layer = 2
+
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.75, 0.75)
 process_callback = 0
@@ -87,3 +90,5 @@ target = NodePath("../../Player")
 
 [node name="Gunner" parent="EnemyCar" instance=ExtResource("3_oixce")]
 position = Vector2(-26, 0)
+
+[editable path="Player"]
