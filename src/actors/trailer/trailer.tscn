@@ -9,6 +9,7 @@ size = Vector2(86, 65)
 [node name="Trailer" type="RigidBody2D"]
 position = Vector2(22, 0)
 rotation = 1.5708
+mass = 0.01
 script = ExtResource("1_gna1w")
 
 [node name="PinJoint2D" type="PinJoint2D" parent="."]

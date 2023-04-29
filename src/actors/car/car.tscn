@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3oilgucxs8uq"]
+[gd_scene load_steps=6 format=3 uid="uid://b3oilgucxs8uq"]
 
 [ext_resource type="Script" path="res://src/actors/car/car.gd" id="1_l67g7"]
 [ext_resource type="Texture2D" uid="uid://5s16qsmsypi6" path="res://src/actors/car/car.png" id="2_dlaoy"]
 [ext_resource type="PackedScene" uid="uid://dfntrurleh6e" path="res://src/actors/car/drift/drifter.tscn" id="3_u5js2"]
+[ext_resource type="PackedScene" uid="uid://wr5v2amc3ljx" path="res://src/actors/trailer/trailer.tscn" id="4_bbmyq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_frxwr"]
 radius = 35.0
@@ -31,3 +32,6 @@ shape = SubResource("CapsuleShape2D_frxwr")
 
 [node name="Drifter" parent="." instance=ExtResource("3_u5js2")]
 rotation = 1.5708
+
+[node name="Trailer" parent="." instance=ExtResource("4_bbmyq")]
+position = Vector2(-109, 0)
