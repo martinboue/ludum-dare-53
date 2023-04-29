@@ -1,6 +1,6 @@
 extends Marker2D
 
-const Max = 200
+const Max = 100
 
 @onready var line = $Line
 

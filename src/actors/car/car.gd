@@ -27,12 +27,8 @@ func _physics_process(delta):
 	var acceleration := Input.get_axis("brake", "accelerate")
 	apply_impulse(transform.x * engine_power * acceleration, 
 		drive_wheel.position.rotated(rotation))
-	if acceleration != 0:
-		drifter.drift()
-		trailer_drifter.drift()
-	else: 
-		drifter.stop_drift()
-		trailer_drifter.stop_drift()
+	drifter.drift()
+	trailer_drifter.drift()
 
 	# Steering
 	var turn := Input.get_axis("steer_left", "steer_right")
