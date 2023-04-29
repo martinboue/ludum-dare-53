@@ -2,7 +2,7 @@
 extends CharacterBody2D
 
 const speed := 100.0
-const range := 500.0
+const stop_distance := 500.0
 
 @onready var fire_cooldown := $FireCooldown
 @onready var bullet_spawner := $BulletSpawner
@@ -13,11 +13,11 @@ var bullet_scene := preload("res://src/actors/enemies/gunner/bullet/bullet.tscn"
 func _ready() -> void:
 	target = get_tree().get_nodes_in_group("player")[0]
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	look_at(target.global_position)
 	
 	var dist := target.global_position.distance_to(global_position)
-	if dist > range:
+	if dist > stop_distance:
 		velocity = speed * global_position.direction_to(target.global_position)
 	else:
 		velocity = Vector2.ZERO
@@ -35,5 +35,5 @@ func fire() -> void:
 	
 
 
-func _on_hurt_box_on_hurt(hitbox) -> void:
+func _on_hurt_box_on_hurt(_hitbox) -> void:
 	queue_free()

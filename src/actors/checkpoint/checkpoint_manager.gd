@@ -6,7 +6,7 @@ extends Node2D
 func _ready() -> void:
 	begin_checkpoint(initial_checkpoint)
 
-func on_checkpoint_confirmed(trailer: Trailer, checkpoint: Checkpoint) -> void:
+func on_checkpoint_confirmed(_trailer: Trailer, checkpoint: Checkpoint) -> void:
 	var next_checkpoint = checkpoint.next_checkpoint
 	
 	if next_checkpoint != null:

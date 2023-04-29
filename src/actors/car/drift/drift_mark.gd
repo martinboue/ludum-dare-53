@@ -4,7 +4,7 @@ const Max = 100
 
 @onready var line = $Line
 
-func _process(delta):
+func _process(_delta):
 	var point_count = line.get_point_count()
 	if point_count > Max:
 		line.remove_point(0)

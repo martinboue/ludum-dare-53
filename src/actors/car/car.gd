@@ -21,7 +21,7 @@ var steer_scale := 400.0
 
 var trailer: Trailer
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	# Acceleration
 	var acceleration := Input.get_axis("brake", "accelerate")
 	apply_impulse(transform.x * engine_power * acceleration, 
