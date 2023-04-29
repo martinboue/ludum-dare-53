@@ -44,9 +44,8 @@ position_smoothing_enabled = true
 rotation = 1.5708
 texture = ExtResource("3_bmkbt")
 
-[node name="CarController" type="Node" parent="Player" node_paths=PackedStringArray("car")]
+[node name="CarController" type="Node" parent="Player"]
 script = ExtResource("4_22f36")
-car = NodePath("..")
 
 [node name="Gunner" parent="." instance=ExtResource("3_oixce")]
 position = Vector2(879, 149)
@@ -82,7 +81,6 @@ metadata/_edit_group_ = true
 rotation = 1.5708
 texture = ExtResource("9_jy7v0")
 
-[node name="TeslaAutoPilot" type="Node" parent="EnemyCar" node_paths=PackedStringArray("car_to_pilot", "target")]
+[node name="TeslaAutoPilot" type="Node" parent="EnemyCar" node_paths=PackedStringArray("target")]
 script = ExtResource("10_ngrml")
-car_to_pilot = NodePath("..")
 target = NodePath("../../Player")
