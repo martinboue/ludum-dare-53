@@ -13,7 +13,7 @@ height = 86.0
 
 [node name="Car" type="RigidBody2D" groups=["player"]]
 mass = 10.0
-inertia = 100.0
+inertia = 200.0
 linear_damp = 1.0
 angular_damp = 5.0
 script = ExtResource("1_l67g7")
@@ -34,6 +34,18 @@ shape = SubResource("CapsuleShape2D_frxwr")
 
 [node name="Drifter" parent="." instance=ExtResource("3_u5js2")]
 position = Vector2(1, -1)
+
+[node name="BackLeft" type="Marker2D" parent="Drifter" groups=["wheel_markers"]]
+position = Vector2(-25, -17)
+
+[node name="FrontLeft" type="Marker2D" parent="Drifter" groups=["wheel_markers"]]
+position = Vector2(22, -17)
+
+[node name="FrontRight" type="Marker2D" parent="Drifter" groups=["wheel_markers"]]
+position = Vector2(23, 20)
+
+[node name="BackRight" type="Marker2D" parent="Drifter" groups=["wheel_markers"]]
+position = Vector2(-25, 18)
 
 [node name="Trailer" parent="." instance=ExtResource("4_bbmyq")]
 position = Vector2(-58, 0)

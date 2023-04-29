@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://wr5v2amc3ljx"]
+[gd_scene load_steps=7 format=3 uid="uid://wr5v2amc3ljx"]
 
 [ext_resource type="Script" path="res://src/actors/trailer/trailer.gd" id="1_gna1w"]
 [ext_resource type="Texture2D" uid="uid://bypc7bif3liy5" path="res://src/actors/trailer/trailer.png" id="2_qn46r"]
 [ext_resource type="Script" path="res://src/nodes/hitbox/hitbox.gd" id="3_0fla0"]
 [ext_resource type="Script" path="res://src/nodes/hurtbox/hurtbox.gd" id="3_g817u"]
+[ext_resource type="PackedScene" uid="uid://dfntrurleh6e" path="res://src/actors/car/drift/drifter.tscn" id="3_lqq1h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hg81q"]
 size = Vector2(45.9999, 35.0002)
@@ -44,3 +45,11 @@ script = ExtResource("3_g817u")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(0.000100348, 18.5)
 shape = SubResource("RectangleShape2D_hg81q")
+
+[node name="Drifter" parent="." instance=ExtResource("3_lqq1h")]
+
+[node name="LeftWheel" type="Marker2D" parent="Drifter"]
+position = Vector2(-22.9999, 22.0001)
+
+[node name="RightWheel" type="Marker2D" parent="Drifter"]
+position = Vector2(23.0001, 21.9999)

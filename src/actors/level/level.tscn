@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://u6hb1t17ykss"]
+
+[ext_resource type="Script" path="res://src/actors/level/level.gd" id="1_jibd1"]
+[ext_resource type="PackedScene" uid="uid://b3oilgucxs8uq" path="res://src/actors/car/car.tscn" id="2_a8fq7"]
+
+[sub_resource type="Curve2D" id="Curve2D_5u3yt"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 549, 588, 1.23601, 362.24, -1.23601, -362.24, 1577, -1181, -157.873, 512.586, 157.873, -512.586, 1358, -3416, -512.579, 1761.99, 512.579, -1761.99, 2266, -6703, -427.149, 1313.48, 427.149, -1313.48, 2650, -11434, -1398.91, -21.3575, 1398.91, 21.3575, 5512, -12534, -1185.34, -587.33, 1185.34, 587.33, 11855, -11551, -779.547, -1366.88, 779.547, 1366.88, 15763, -8583, -1168.33, -3657.37, 1168.33, 3657.37, 15852, 6498, -1103.58, -2435.5, 1103.58, 2435.5, 19998, 12467, 665.119, -4677.88, -665.119, 4677.88, 23056, 23367, 1255.93, -4902.54, -1255.93, 4902.54, 19102, 30028, 0, 0, 0, 0, 18449, 38670)
+}
+point_count = 13
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_jibd1")
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-298, -294)
+curve = SubResource("Curve2D_5u3yt")
+
+[node name="Line2D" type="Line2D" parent="."]
+z_index = -2
+points = PackedVector2Array(1112, -58)
+width = 500.0
+default_color = Color(0.517647, 0.392157, 0.309804, 1)
+antialiased = true
+
+[node name="Car" parent="." instance=ExtResource("2_a8fq7")]
+position = Vector2(542, 340)
+rotation = -0.961676
+
+[node name="Camera2D" type="Camera2D" parent="Car"]
+zoom = Vector2(0.75, 0.75)
+process_callback = 0
+position_smoothing_enabled = true
