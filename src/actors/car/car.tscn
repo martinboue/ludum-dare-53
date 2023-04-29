@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://b3oilgucxs8uq"]
+[gd_scene load_steps=7 format=3 uid="uid://b3oilgucxs8uq"]
 
 [ext_resource type="Script" path="res://src/actors/car/car.gd" id="1_l67g7"]
 [ext_resource type="Texture2D" uid="uid://5s16qsmsypi6" path="res://src/actors/car/car.png" id="2_dlaoy"]
 [ext_resource type="PackedScene" uid="uid://dfntrurleh6e" path="res://src/actors/car/drift/drifter.tscn" id="3_u5js2"]
-[ext_resource type="PackedScene" uid="uid://wr5v2amc3ljx" path="res://src/actors/trailer/trailer.tscn" id="4_bbmyq"]
 [ext_resource type="Script" path="res://src/nodes/hurtbox/hurtbox.gd" id="5_531ns"]
 [ext_resource type="Script" path="res://src/nodes/hitbox/hitbox.gd" id="6_70o8b"]
 
@@ -12,6 +11,7 @@ radius = 21.0
 height = 86.0
 
 [node name="Car" type="RigidBody2D" groups=["player"]]
+collision_layer = 9
 mass = 10.0
 inertia = 200.0
 linear_damp = 1.0
@@ -23,10 +23,10 @@ rotation = 1.5708
 texture = ExtResource("2_dlaoy")
 
 [node name="DriveWheel" type="Marker2D" parent="."]
-position = Vector2(-50, 0)
+position = Vector2(-24, 0)
 
 [node name="SteeringWheel" type="Marker2D" parent="."]
-position = Vector2(51, 0)
+position = Vector2(23, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
@@ -42,13 +42,10 @@ position = Vector2(-25, -17)
 position = Vector2(22, -17)
 
 [node name="FrontRight" type="Marker2D" parent="Drifter"]
-position = Vector2(23, 20)
+position = Vector2(22, 20)
 
 [node name="BackRight" type="Marker2D" parent="Drifter"]
 position = Vector2(-25, 18)
-
-[node name="Trailer" parent="." instance=ExtResource("4_bbmyq")]
-position = Vector2(-58, 0)
 
 [node name="HurtBox" type="Area2D" parent="."]
 collision_layer = 0
@@ -67,3 +64,5 @@ script = ExtResource("6_70o8b")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_frxwr")
+
+[node name="Marker2D" type="Marker2D" parent="."]

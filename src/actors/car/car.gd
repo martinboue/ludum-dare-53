@@ -1,4 +1,4 @@
-# Car
+class_name Car
 extends RigidBody2D
 
 # Steering wheel = roue directrice
@@ -7,7 +7,6 @@ extends RigidBody2D
 @onready var drive_wheel := $DriveWheel
 
 @onready var drifter = $Drifter
-@onready var trailer_drifter = $Trailer/Drifter
 
 # Sources :
 # https://kidscancode.org/godot_recipes/3.x/kyn/rigidbody2d/
@@ -20,7 +19,7 @@ var engine_power := 200
 var steer_power := 5000
 var steer_scale := 400.0
 
-var steer_velocity
+var trailer: Trailer
 
 func _physics_process(delta):
 	# Acceleration
@@ -28,7 +27,6 @@ func _physics_process(delta):
 	apply_impulse(transform.x * engine_power * acceleration, 
 		drive_wheel.position.rotated(rotation))
 	drifter.drift()
-	trailer_drifter.drift()
 
 	# Steering
 	var turn := Input.get_axis("steer_left", "steer_right")
