@@ -19,12 +19,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 func get_input():
-	
-	var turn := 0
-	if Input.is_action_pressed("steer_left"):
-		turn -= 1
-	if Input.is_action_pressed("steer_right"):
-		turn += 1
+	var turn := Input.get_axis("steer_left", "steer_right")
 	steer_direction = turn * deg_to_rad(max_steering_angle)
 	
 	if Input.is_action_pressed("accelerate"):
