@@ -15,15 +15,14 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	look_at(target.global_position)
-	
+		
 	var dist := target.global_position.distance_to(global_position)
-	if dist > stop_distance:
+	if dist > stop_distance and not get_parent() is Car:
 		velocity = speed * global_position.direction_to(target.global_position)
-	else:
+	elif dist < stop_distance:
 		velocity = Vector2.ZERO
 		if fire_cooldown.is_stopped():
 			fire()
-
 	move_and_slide()
 
 func fire() -> void:
@@ -32,8 +31,6 @@ func fire() -> void:
 	bullet.source = bullet_spawner
 	bullet.target = target
 	add_child(bullet)
-	
-
 
 func _on_hurt_box_on_hurt(_hitbox) -> void:
 	queue_free()

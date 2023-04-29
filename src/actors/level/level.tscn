@@ -1,11 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://u6hb1t17ykss"]
+[gd_scene load_steps=12 format=3 uid="uid://ygy75e3rt0ls"]
 
 [ext_resource type="Script" path="res://src/actors/level/level.gd" id="1_homev"]
 [ext_resource type="Script" path="res://src/actors/checkpoint/checkpoint_manager.gd" id="1_ru67p"]
 [ext_resource type="PackedScene" uid="uid://b3oilgucxs8uq" path="res://src/actors/car/car.tscn" id="2_a8fq7"]
+[ext_resource type="Texture2D" uid="uid://5s16qsmsypi6" path="res://src/actors/car/car.png" id="3_bmkbt"]
 [ext_resource type="PackedScene" uid="uid://d4ix0fdxj8r2i" path="res://src/actors/enemies/gunner/gunner.tscn" id="3_oixce"]
+[ext_resource type="Script" path="res://src/nodes/controls/car_controller.gd" id="4_22f36"]
 [ext_resource type="PackedScene" uid="uid://bkfyfntime63o" path="res://src/actors/obsctacles/cardboard_box/cardboard_box.tscn" id="4_og7vw"]
 [ext_resource type="PackedScene" uid="uid://bsr52850m4mfc" path="res://src/actors/checkpoint/checkpoint.tscn" id="5_e3kwj"]
+[ext_resource type="Texture2D" uid="uid://d0sggy7w8ixjh" path="res://src/actors/enemies/driver/driver.png" id="9_jy7v0"]
+[ext_resource type="Script" path="res://src/nodes/controls/tesla_auto_pilot.gd" id="10_ngrml"]
 
 [sub_resource type="Curve2D" id="Curve2D_5u3yt"]
 _data = {
@@ -27,14 +31,22 @@ width = 500.0
 default_color = Color(0.517647, 0.392157, 0.309804, 1)
 antialiased = true
 
-[node name="Car" parent="." instance=ExtResource("2_a8fq7")]
+[node name="Player" parent="." instance=ExtResource("2_a8fq7")]
 position = Vector2(542, 340)
 rotation = -0.961676
 
-[node name="Camera2D" type="Camera2D" parent="Car"]
+[node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.75, 0.75)
 process_callback = 0
 position_smoothing_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+rotation = 1.5708
+texture = ExtResource("3_bmkbt")
+
+[node name="CarController" type="Node" parent="Player" node_paths=PackedStringArray("car")]
+script = ExtResource("4_22f36")
+car = NodePath("..")
 
 [node name="Gunner" parent="." instance=ExtResource("3_oixce")]
 position = Vector2(879, 149)
@@ -61,3 +73,16 @@ next_checkpoint = NodePath("../Checkpoint2")
 
 [node name="Checkpoint2" parent="CheckpointManager" instance=ExtResource("5_e3kwj")]
 position = Vector2(870, -698)
+
+[node name="EnemyCar" parent="." instance=ExtResource("2_a8fq7")]
+position = Vector2(2811, -907)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="EnemyCar"]
+rotation = 1.5708
+texture = ExtResource("9_jy7v0")
+
+[node name="TeslaAutoPilot" type="Node" parent="EnemyCar" node_paths=PackedStringArray("car_to_pilot", "target")]
+script = ExtResource("10_ngrml")
+car_to_pilot = NodePath("..")
+target = NodePath("../../Player")

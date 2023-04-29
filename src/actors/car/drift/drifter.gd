@@ -15,6 +15,7 @@ func drift():
 
 func stop_drift():
 	pass
+	# Fix: performance issue fix
 	# remove_four_wheels_drift_marks()
 	
 func add_four_wheels_drift_marks():

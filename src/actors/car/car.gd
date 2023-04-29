@@ -21,16 +21,19 @@ var steer_scale := 400.0
 
 var trailer: Trailer
 
+var acceleration := 0.0
+var turn := 0.0
+
+var steer_velocity
+
 func _physics_process(_delta):
 	# Acceleration
-	var acceleration := Input.get_axis("brake", "accelerate")
 	apply_impulse(transform.x * engine_power * acceleration, 
 		drive_wheel.position.rotated(rotation))
 	drifter.drift()
 
 	# Steering
-	var turn := Input.get_axis("steer_left", "steer_right")
-	var steer_direction = turn * deg_to_rad(max_steering_angle)
+	var steer_direction = clampf(turn, -max_steering_angle, max_steering_angle)
 	apply_torque(steer_direction * steer_power * linear_velocity.length() / steer_scale)
 	
 	

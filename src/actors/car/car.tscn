@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://b3oilgucxs8uq"]
+[gd_scene load_steps=6 format=3 uid="uid://b3oilgucxs8uq"]
 
 [ext_resource type="Script" path="res://src/actors/car/car.gd" id="1_l67g7"]
-[ext_resource type="Texture2D" uid="uid://5s16qsmsypi6" path="res://src/actors/car/car.png" id="2_dlaoy"]
 [ext_resource type="PackedScene" uid="uid://dfntrurleh6e" path="res://src/actors/car/drift/drifter.tscn" id="3_u5js2"]
 [ext_resource type="Script" path="res://src/nodes/hurtbox/hurtbox.gd" id="5_531ns"]
 [ext_resource type="Script" path="res://src/nodes/hitbox/hitbox.gd" id="6_70o8b"]
@@ -17,10 +16,6 @@ inertia = 200.0
 linear_damp = 1.0
 angular_damp = 5.0
 script = ExtResource("1_l67g7")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = 1.5708
-texture = ExtResource("2_dlaoy")
 
 [node name="DriveWheel" type="Marker2D" parent="."]
 position = Vector2(-24, 0)
