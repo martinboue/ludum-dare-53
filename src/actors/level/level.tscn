@@ -1,11 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://ygy75e3rt0ls"]
+[gd_scene load_steps=20 format=3 uid="uid://ygy75e3rt0ls"]
 
 [ext_resource type="Script" path="res://src/actors/level/level.gd" id="1_homev"]
 [ext_resource type="Script" path="res://src/actors/checkpoint/checkpoint_manager.gd" id="1_ru67p"]
+[ext_resource type="Shader" path="res://src/actors/level/noise_sand.gdshader" id="2_68fn6"]
 [ext_resource type="PackedScene" uid="uid://b3oilgucxs8uq" path="res://src/actors/car/car.tscn" id="2_a8fq7"]
 [ext_resource type="Texture2D" uid="uid://5s16qsmsypi6" path="res://src/actors/car/car.png" id="3_bmkbt"]
+[ext_resource type="Texture2D" uid="uid://buqf6udyd7o73" path="res://src/actors/level/sand_1.png" id="3_n4wds"]
 [ext_resource type="PackedScene" uid="uid://d4ix0fdxj8r2i" path="res://src/actors/enemies/gunner/gunner.tscn" id="3_oixce"]
 [ext_resource type="Script" path="res://src/nodes/controls/car_controller.gd" id="4_22f36"]
+[ext_resource type="Texture2D" uid="uid://lue7y6a6isxh" path="res://src/actors/level/sand_2.png" id="4_hvrmr"]
 [ext_resource type="PackedScene" uid="uid://bkfyfntime63o" path="res://src/actors/obsctacles/cardboard_box/cardboard_box.tscn" id="4_og7vw"]
 [ext_resource type="PackedScene" uid="uid://bsr52850m4mfc" path="res://src/actors/checkpoint/checkpoint.tscn" id="5_e3kwj"]
 [ext_resource type="Texture2D" uid="uid://d0sggy7w8ixjh" path="res://src/actors/enemies/driver/driver.png" id="9_jy7v0"]
@@ -16,6 +19,40 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 549, 588, 1.23601, 362.24, -1.23601, -362.24, 1577, -1181, -157.873, 512.586, 157.873, -512.586, 1358, -3416, -512.579, 1761.99, 512.579, -1761.99, 2266, -6703, -427.149, 1313.48, 427.149, -1313.48, 2650, -11434, -1398.91, -21.3575, 1398.91, 21.3575, 5512, -12534, -1185.34, -587.33, 1185.34, 587.33, 11855, -11551, -779.547, -1366.88, 779.547, 1366.88, 15763, -8583, -1168.33, -3657.37, 1168.33, 3657.37, 15852, 6498, -1103.58, -2435.5, 1103.58, 2435.5, 19998, 12467, 665.119, -4677.88, -665.119, 4677.88, 23056, 23367, 1255.93, -4902.54, -1255.93, 4902.54, 19102, 30028, 0, 0, 0, 0, 18449, 38670)
 }
 point_count = 13
+
+[sub_resource type="Gradient" id="Gradient_snfut"]
+offsets = PackedFloat32Array(0, 0.672269, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.980392, 0.980392, 0.980392, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2071v"]
+noise_type = 3
+fractal_octaves = 10
+fractal_weighted_strength = 0.42
+cellular_distance_function = 1
+cellular_jitter = 1.84
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 2
+domain_warp_fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rbs2e"]
+width = 2048
+height = 2048
+seamless_blend_skirt = 1.0
+color_ramp = SubResource("Gradient_snfut")
+noise = SubResource("FastNoiseLite_2071v")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0h31h"]
+shader = ExtResource("2_68fn6")
+shader_parameter/cut_factor = 0.5
+shader_parameter/border = 0.0
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_rbs2e")
+shader_parameter/texture_a = ExtResource("4_hvrmr")
+shader_parameter/texture_b = ExtResource("3_n4wds")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1rqnm"]
+size = Vector2(50, 50)
+orientation = 2
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_homev")
@@ -30,6 +67,15 @@ points = PackedVector2Array(1112, -58)
 width = 500.0
 default_color = Color(0.517647, 0.392157, 0.309804, 1)
 antialiased = true
+
+[node name="Sand" type="MeshInstance2D" parent="."]
+z_index = -3
+texture_filter = 1
+texture_repeat = 1
+material = SubResource("ShaderMaterial_0h31h")
+position = Vector2(8570, -5934)
+scale = Vector2(448.451, 297.682)
+mesh = SubResource("PlaneMesh_1rqnm")
 
 [node name="Player" parent="." instance=ExtResource("2_a8fq7")]
 position = Vector2(542, 340)
