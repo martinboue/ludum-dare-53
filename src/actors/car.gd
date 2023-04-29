@@ -10,6 +10,8 @@ var drag = -0.001
 var acceleration = Vector2.ZERO
 var steer_direction
 
+@onready var drifter := $Sprite2D/Drifter
+
 func _physics_process(delta):
 	acceleration = Vector2.ZERO
 	get_input()
@@ -23,7 +25,10 @@ func get_input():
 	steer_direction = turn * deg_to_rad(max_steering_angle)
 	
 	if Input.is_action_pressed("accelerate"):
+		drifter.drift()
 		acceleration = transform.x * engine_power
+	else:
+		drifter.stop_drit()
 		
 func apply_friction():
 	if velocity.length() < 5:

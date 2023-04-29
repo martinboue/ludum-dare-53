@@ -6,3 +6,6 @@
 
 [node name="car" parent="." instance=ExtResource("1_5s0gf")]
 position = Vector2(449, 416)
+
+[node name="Camera2D" type="Camera2D" parent="car"]
+position_smoothing_enabled = true
