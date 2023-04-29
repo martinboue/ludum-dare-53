@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://u6hb1t17ykss"]
+[gd_scene load_steps=8 format=3 uid="uid://u6hb1t17ykss"]
 
-[ext_resource type="Script" path="res://src/actors/level/level.gd" id="1_jibd1"]
+[ext_resource type="Script" path="res://src/actors/level/level.gd" id="1_homev"]
+[ext_resource type="Script" path="res://src/actors/checkpoint/checkpoint_manager.gd" id="1_ru67p"]
 [ext_resource type="PackedScene" uid="uid://b3oilgucxs8uq" path="res://src/actors/car/car.tscn" id="2_a8fq7"]
 [ext_resource type="PackedScene" uid="uid://d4ix0fdxj8r2i" path="res://src/actors/enemies/gunner/gunner.tscn" id="3_oixce"]
 [ext_resource type="PackedScene" uid="uid://bkfyfntime63o" path="res://src/actors/obsctacles/cardboard_box/cardboard_box.tscn" id="4_og7vw"]
@@ -13,10 +14,7 @@ _data = {
 point_count = 13
 
 [node name="Level" type="Node2D"]
-script = ExtResource("1_jibd1")
-
-[node name="Checkpoint" parent="." instance=ExtResource("5_e3kwj")]
-position = Vector2(546, -51)
+script = ExtResource("1_homev")
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(-298, -294)
@@ -53,5 +51,13 @@ position = Vector2(883, -218)
 [node name="CardboardBox4" parent="." instance=ExtResource("4_og7vw")]
 position = Vector2(902, -183)
 
-[node name="Checkpoint2" parent="." instance=ExtResource("5_e3kwj")]
+[node name="CheckpointManager" type="Node2D" parent="." node_paths=PackedStringArray("initial_checkpoint")]
+script = ExtResource("1_ru67p")
+initial_checkpoint = NodePath("Checkpoint")
+
+[node name="Checkpoint" parent="CheckpointManager" node_paths=PackedStringArray("next_checkpoint") instance=ExtResource("5_e3kwj")]
+position = Vector2(546, -51)
+next_checkpoint = NodePath("../Checkpoint2")
+
+[node name="Checkpoint2" parent="CheckpointManager" instance=ExtResource("5_e3kwj")]
 position = Vector2(870, -698)
