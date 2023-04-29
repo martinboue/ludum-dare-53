@@ -14,7 +14,8 @@ func drift():
 	get_tree().call_group(marks_group_name, "mark")
 
 func stop_drift():
-	remove_four_wheels_drift_marks()
+	pass
+	# remove_four_wheels_drift_marks()
 	
 func add_four_wheels_drift_marks():
 	for m in get_children():
