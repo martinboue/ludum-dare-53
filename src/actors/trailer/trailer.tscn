@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://wr5v2amc3ljx"]
+[gd_scene load_steps=6 format=3 uid="uid://wr5v2amc3ljx"]
 
 [ext_resource type="Script" path="res://src/actors/trailer/trailer.gd" id="1_gna1w"]
 [ext_resource type="Texture2D" uid="uid://bypc7bif3liy5" path="res://src/actors/trailer/trailer.png" id="2_qn46r"]
+[ext_resource type="Script" path="res://src/nodes/hitbox/hitbox.gd" id="3_0fla0"]
+[ext_resource type="Script" path="res://src/nodes/hurtbox/hurtbox.gd" id="3_g817u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hg81q"]
-size = Vector2(86, 65)
+size = Vector2(45.9999, 35.0002)
 
 [node name="Trailer" type="RigidBody2D"]
 position = Vector2(22, 0)
@@ -13,14 +15,32 @@ mass = 0.01
 script = ExtResource("1_gna1w")
 
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
-position = Vector2(-9.53674e-07, -46)
+position = Vector2(0.000106812, -16)
 node_b = NodePath("..")
 disable_collision = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(3, 3)
+position = Vector2(3.33786e-05, 9)
 texture = ExtResource("2_qn46r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 11)
+position = Vector2(0.000100348, 18.5)
+shape = SubResource("RectangleShape2D_hg81q")
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("3_0fla0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0.000100348, 18.5)
+shape = SubResource("RectangleShape2D_hg81q")
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("3_g817u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0.000100348, 18.5)
 shape = SubResource("RectangleShape2D_hg81q")

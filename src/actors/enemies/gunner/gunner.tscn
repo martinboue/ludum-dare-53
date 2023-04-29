@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://d4ix0fdxj8r2i"]
+
+[ext_resource type="Texture2D" uid="uid://bec37s7d2so0" path="res://src/actors/enemies/gunner/gunner.png" id="1_cqpih"]
+[ext_resource type="Script" path="res://src/actors/enemies/gunner/gunner.gd" id="1_t8oqq"]
+[ext_resource type="Script" path="res://src/nodes/hurtbox/hurtbox.gd" id="3_gno4b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wtgqe"]
+radius = 23.0
+
+[node name="Gunner" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_t8oqq")
+
+[node name="BulletSpawner" type="Marker2D" parent="."]
+position = Vector2(28, 9)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(6, 0)
+texture = ExtResource("1_cqpih")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wtgqe")
+
+[node name="FireCooldown" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_gno4b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_wtgqe")
+
+[connection signal="on_hurt" from="HurtBox" to="." method="_on_hurt_box_on_hurt"]

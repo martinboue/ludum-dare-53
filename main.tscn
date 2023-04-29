@@ -1,16 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://c54qgrbj1u2ky"]
+[gd_scene load_steps=4 format=3 uid="uid://c54qgrbj1u2ky"]
 
 [ext_resource type="PackedScene" uid="uid://wr5v2amc3ljx" path="res://src/actors/trailer/trailer.tscn" id="2_bpfrt"]
 [ext_resource type="PackedScene" uid="uid://b3oilgucxs8uq" path="res://src/actors/car/car.tscn" id="2_fkhnd"]
+[ext_resource type="PackedScene" uid="uid://d4ix0fdxj8r2i" path="res://src/actors/enemies/gunner/gunner.tscn" id="3_uuf7h"]
 
 [node name="Main" type="Node2D"]
 
+[node name="Trailer" parent="." instance=ExtResource("2_bpfrt")]
+position = Vector2(665, 239)
+
+[node name="gunner" parent="." instance=ExtResource("3_uuf7h")]
+position = Vector2(472, 506)
+
 [node name="Car" parent="." instance=ExtResource("2_fkhnd")]
-position = Vector2(192, 324)
+position = Vector2(192, 321)
 
 [node name="Camera2D" type="Camera2D" parent="Car"]
 process_callback = 0
 position_smoothing_enabled = true
-
-[node name="Trailer" parent="." instance=ExtResource("2_bpfrt")]
-position = Vector2(665, 239)

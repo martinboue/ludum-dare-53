@@ -1,20 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3oilgucxs8uq"]
+[gd_scene load_steps=8 format=3 uid="uid://b3oilgucxs8uq"]
 
 [ext_resource type="Script" path="res://src/actors/car/car.gd" id="1_l67g7"]
 [ext_resource type="Texture2D" uid="uid://5s16qsmsypi6" path="res://src/actors/car/car.png" id="2_dlaoy"]
 [ext_resource type="PackedScene" uid="uid://dfntrurleh6e" path="res://src/actors/car/drift/drifter.tscn" id="3_u5js2"]
 [ext_resource type="PackedScene" uid="uid://wr5v2amc3ljx" path="res://src/actors/trailer/trailer.tscn" id="4_bbmyq"]
+[ext_resource type="Script" path="res://src/nodes/hurtbox/hurtbox.gd" id="5_531ns"]
+[ext_resource type="Script" path="res://src/nodes/hitbox/hitbox.gd" id="6_70o8b"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_frxwr"]
-radius = 35.0
-height = 130.0
+radius = 21.0
+height = 86.0
 
-[node name="Car" type="RigidBody2D"]
+[node name="Car" type="RigidBody2D" groups=["player"]]
 mass = 10.0
 inertia = 100.0
 linear_damp = 1.0
 angular_damp = 5.0
 script = ExtResource("1_l67g7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("2_dlaoy")
 
 [node name="DriveWheel" type="Marker2D" parent="."]
 position = Vector2(-50, 0)
@@ -22,16 +28,30 @@ position = Vector2(-50, 0)
 [node name="SteeringWheel" type="Marker2D" parent="."]
 position = Vector2(51, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = 1.5708
-texture = ExtResource("2_dlaoy")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_frxwr")
 
 [node name="Drifter" parent="." instance=ExtResource("3_u5js2")]
-rotation = 1.5708
+position = Vector2(1, -1)
 
 [node name="Trailer" parent="." instance=ExtResource("4_bbmyq")]
-position = Vector2(-109, 0)
+position = Vector2(-58, 0)
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("5_531ns")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_frxwr")
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("6_70o8b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_frxwr")
