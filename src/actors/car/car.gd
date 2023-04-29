@@ -7,6 +7,8 @@ extends RigidBody2D
 @onready var drive_wheel := $DriveWheel
 
 @onready var drifter = $Drifter
+@onready var right_wheel = $RightWheel
+@onready var left_wheel = $LeftWheel
 
 # Sources :
 # https://kidscancode.org/godot_recipes/3.x/kyn/rigidbody2d/
@@ -35,6 +37,8 @@ func _physics_process(_delta):
 	# Steering
 	var steer_direction = clampf(turn, -max_steering_angle, max_steering_angle)
 	apply_torque(steer_direction * steer_power * linear_velocity.length() / steer_scale)
+	left_wheel.rotation = steer_direction
+	right_wheel.rotation = steer_direction
 	
 	
 	
