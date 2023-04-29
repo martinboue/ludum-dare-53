@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://src/nodes/hurtbox/hurtbox.gd" id="3_gno4b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wtgqe"]
-radius = 23.0
+radius = 12.0
 
 [node name="Gunner" type="CharacterBody2D"]
 collision_layer = 4
@@ -13,10 +13,10 @@ collision_mask = 2
 script = ExtResource("1_t8oqq")
 
 [node name="BulletSpawner" type="Marker2D" parent="."]
-position = Vector2(28, 9)
+position = Vector2(15, 4)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(6, 0)
+position = Vector2(3, 0)
 texture = ExtResource("1_cqpih")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
