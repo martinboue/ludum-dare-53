@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkfyfntime63o"]
+
+[ext_resource type="Texture2D" uid="uid://c1wr7eiawngwo" path="res://src/actors/obsctacles/cardboard_box/cardboard_box.png" id="1_bpe25"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lctel"]
+size = Vector2(24, 24)
+
+[node name="CardboardBox" type="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lctel")
+
+[node name="CardboardBox" type="Sprite2D" parent="."]
+texture = ExtResource("1_bpe25")

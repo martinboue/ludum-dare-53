@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://u6hb1t17ykss"]
+[gd_scene load_steps=6 format=3 uid="uid://u6hb1t17ykss"]
 
 [ext_resource type="Script" path="res://src/actors/level/level.gd" id="1_jibd1"]
 [ext_resource type="PackedScene" uid="uid://b3oilgucxs8uq" path="res://src/actors/car/car.tscn" id="2_a8fq7"]
 [ext_resource type="PackedScene" uid="uid://d4ix0fdxj8r2i" path="res://src/actors/enemies/gunner/gunner.tscn" id="3_oixce"]
+[ext_resource type="PackedScene" uid="uid://bkfyfntime63o" path="res://src/actors/obsctacles/cardboard_box/cardboard_box.tscn" id="4_og7vw"]
 
 [sub_resource type="Curve2D" id="Curve2D_5u3yt"]
 _data = {
@@ -35,3 +36,15 @@ position_smoothing_enabled = true
 
 [node name="Gunner" parent="." instance=ExtResource("3_oixce")]
 position = Vector2(879, 149)
+
+[node name="CardboardBox" parent="." instance=ExtResource("4_og7vw")]
+position = Vector2(824, -272)
+
+[node name="CardboardBox2" parent="." instance=ExtResource("4_og7vw")]
+position = Vector2(855, -246)
+
+[node name="CardboardBox3" parent="." instance=ExtResource("4_og7vw")]
+position = Vector2(883, -218)
+
+[node name="CardboardBox4" parent="." instance=ExtResource("4_og7vw")]
+position = Vector2(902, -183)
