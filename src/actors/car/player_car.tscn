@@ -99,7 +99,8 @@ shape = SubResource("CapsuleShape2D_bsupm")
 [node name="Marker2D" type="Marker2D" parent="."]
 
 [node name="SmokeEmitter" parent="." node_paths=PackedStringArray("health") instance=ExtResource("8_rcsa8")]
-position = Vector2(-36, 0)
+z_index = 1
+position = Vector2(32, 0)
 health = NodePath("../Health")
 
 [connection signal="died" from="Health" to="CarController" method="_on_health_died"]

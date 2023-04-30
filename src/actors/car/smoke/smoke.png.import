@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bikmoendnrnhn"
-path="res://.godot/imported/smoke_01.png-9d1913aa4d5c9d9bfab5f30617a6f7bd.ctex"
+uid="uid://c6jc7smwxgv6i"
+path="res://.godot/imported/smoke.png-e007f64d41c9f9f54be2f5951bce0a21.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/actors/car/smoke/smoke_01.png"
-dest_files=["res://.godot/imported/smoke_01.png-9d1913aa4d5c9d9bfab5f30617a6f7bd.ctex"]
+source_file="res://src/actors/car/smoke/smoke.png"
+dest_files=["res://.godot/imported/smoke.png-e007f64d41c9f9f54be2f5951bce0a21.ctex"]
 
 [params]
 

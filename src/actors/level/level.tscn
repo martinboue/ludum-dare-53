@@ -1,4 +1,4 @@
-[gd_scene load_steps=211 format=3 uid="uid://3ddwryrxef2q"]
+[gd_scene load_steps=210 format=3 uid="uid://3ddwryrxef2q"]
 
 [ext_resource type="Script" path="res://src/actors/level/level.gd" id="1_homev"]
 [ext_resource type="Script" path="res://src/actors/checkpoint/checkpoint_manager.gd" id="1_ru67p"]
@@ -29,7 +29,6 @@
 [ext_resource type="Script" path="res://src/actors/level/checkpoint_guard.gd" id="22_baxp0"]
 [ext_resource type="PackedScene" uid="uid://bu47qcdj0hsxb" path="res://src/actors/car/enemy_pickup_car.tscn" id="25_lmnbq"]
 [ext_resource type="PackedScene" uid="uid://bpywquu6je2oh" path="res://src/actors/car/player_car.tscn" id="27_s0jr7"]
-[ext_resource type="Script" path="res://addons/rmsmartshape/shapes/shape_render.gd" id="28_1tr60"]
 
 [sub_resource type="Gradient" id="Gradient_snfut"]
 offsets = PackedFloat32Array(0.235294, 0.851541, 1)
@@ -1709,19 +1708,6 @@ script = ExtResource("3_8smkf")
 _points = SubResource("Resource_i87ai")
 shape_material = SubResource("Resource_t1qf1")
 collision_polygon_node_path = NodePath("../CollisionPolygon2D")
-
-[node name="_SS2D_RENDER" type="Node2D" parent="BorderBody/BorderShape"]
-script = ExtResource("28_1tr60")
-
-[node name="@@124204" type="Node2D" parent="BorderBody/BorderShape/_SS2D_RENDER"]
-z_index = 20
-script = ExtResource("28_1tr60")
-
-[node name="@@124205" type="Node2D" parent="BorderBody/BorderShape/_SS2D_RENDER"]
-z_index = 21
-script = ExtResource("28_1tr60")
-
-[node name="__DUMMY__" type="Node2D" parent="BorderBody/BorderShape"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BorderBody"]
 visible = false

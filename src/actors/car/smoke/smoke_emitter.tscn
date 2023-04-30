@@ -1,76 +1,77 @@
-[gd_scene load_steps=11 format=3 uid="uid://yt7lsn48fu80"]
+[gd_scene load_steps=13 format=3 uid="uid://yt7lsn48fu80"]
 
 [ext_resource type="Script" path="res://src/actors/car/smoke/smoke_emitter.gd" id="1_4xkp1"]
-[ext_resource type="Texture2D" uid="uid://7pg7df05vb61" path="res://src/actors/car/smoke/fire_01.png" id="1_f0vjr"]
-[ext_resource type="Texture2D" uid="uid://bikmoendnrnhn" path="res://src/actors/car/smoke/smoke_01.png" id="3_nxwg8"]
+[ext_resource type="Texture2D" uid="uid://c6jc7smwxgv6i" path="res://src/actors/car/smoke/smoke.png" id="4_wwrur"]
 
-[sub_resource type="Gradient" id="Gradient_vcdt2"]
-offsets = PackedFloat32Array(0.27248, 0.997275)
-colors = PackedColorArray(0.593134, 0.593134, 0.593134, 1, 0.41598, 0.41598, 0.41598, 0)
+[sub_resource type="Gradient" id="Gradient_i2eg7"]
+offsets = PackedFloat32Array(0.00200803, 0.160643, 0.827309, 1)
+colors = PackedColorArray(0.235294, 0.156863, 0.188235, 1, 0.235294, 0.156863, 0.188235, 1, 0.0901961, 0.0823529, 0.14902, 1, 0.0901961, 0.0823529, 0.14902, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_e0ye5"]
-gradient = SubResource("Gradient_vcdt2")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mqjo4"]
+gradient = SubResource("Gradient_i2eg7")
 
-[sub_resource type="Curve" id="Curve_1lw8s"]
-_data = [Vector2(0, 0), 0.0, 5.92066, 0, 0, Vector2(0.542714, 0.981818), -0.0657851, -0.0657851, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_rha41"]
+_data = [Vector2(0, 0.527273), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_wrs5n"]
-curve = SubResource("Curve_1lw8s")
+[sub_resource type="CurveTexture" id="CurveTexture_0hrui"]
+curve = SubResource("Curve_rha41")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ny15v"]
-emission_shape = 1
-emission_sphere_radius = 1.0
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3ovbf"]
 particle_flag_disable_z = true
 direction = Vector3(-1, 0, 0)
-spread = 50.0
+spread = 20.0
 gravity = Vector3(0, 0, 0)
-initial_velocity_min = 5.0
-initial_velocity_max = 8.0
-angular_velocity_max = 10.0
+initial_velocity_min = 60.0
+initial_velocity_max = 90.0
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
-linear_accel_min = 50.0
-linear_accel_max = 100.0
-scale_min = 0.1
-scale_max = 0.1
-scale_curve = SubResource("CurveTexture_wrs5n")
-color_ramp = SubResource("GradientTexture1D_e0ye5")
+linear_accel_min = 5.0
+linear_accel_max = 10.0
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_0hrui")
+color_ramp = SubResource("GradientTexture1D_mqjo4")
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_en5yx"]
-gradient = SubResource("Gradient_vcdt2")
+[sub_resource type="Gradient" id="Gradient_y4kko"]
+offsets = PackedFloat32Array(0.00803213, 0.0401606, 0.146586, 0.311245, 0.455823, 0.610442, 0.720884, 0.889558, 1)
+colors = PackedColorArray(0.980392, 0.905882, 0.32549, 1, 0.980392, 0.905882, 0.32549, 1, 0.952941, 0.654902, 0.0901961, 1, 0.921569, 0.462745, 0.0235294, 1, 0.709804, 0.305882, 0.121569, 1, 0.6, 0.145098, 0.2, 1, 0.239216, 0.156863, 0.196078, 1, 0.0901961, 0.0823529, 0.14902, 1, 0.0901961, 0.0823529, 0.14902, 0)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g16bm"]
-emission_shape = 1
-emission_sphere_radius = 1.0
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2cq2j"]
+gradient = SubResource("Gradient_y4kko")
+
+[sub_resource type="Curve" id="Curve_b4w30"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.258979, 0.590909), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_v22l1"]
+curve = SubResource("Curve_b4w30")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0xrbx"]
 particle_flag_disable_z = true
 direction = Vector3(-1, 0, 0)
 spread = 30.0
 gravity = Vector3(0, 0, 0)
-initial_velocity_min = 10.0
-initial_velocity_max = 20.0
-angular_velocity_max = 30.0
+initial_velocity_min = 40.0
+initial_velocity_max = 50.0
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
-linear_accel_min = 50.0
-linear_accel_max = 100.0
-scale_min = 0.1
-scale_max = 0.1
-scale_curve = SubResource("CurveTexture_wrs5n")
-color_ramp = SubResource("GradientTexture1D_en5yx")
+linear_accel_max = 5.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_v22l1")
+color_ramp = SubResource("GradientTexture1D_2cq2j")
 
 [node name="SmokeEmitter" type="Node2D"]
 script = ExtResource("1_4xkp1")
 
-[node name="FireEmitter1" type="GPUParticles2D" parent="."]
+[node name="SmokeParticles" type="GPUParticles2D" parent="."]
 emitting = false
 amount = 30
-process_material = SubResource("ParticleProcessMaterial_ny15v")
-texture = ExtResource("1_f0vjr")
+process_material = SubResource("ParticleProcessMaterial_3ovbf")
+texture = ExtResource("4_wwrur")
+lifetime = 1.2
 
-[node name="SmokeEmitter1" type="GPUParticles2D" parent="."]
+[node name="FireParticles" type="GPUParticles2D" parent="."]
 emitting = false
-amount = 30
-process_material = SubResource("ParticleProcessMaterial_g16bm")
-texture = ExtResource("3_nxwg8")
-lifetime = 1.5
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_0xrbx")
+texture = ExtResource("4_wwrur")

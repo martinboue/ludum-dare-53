@@ -71,8 +71,6 @@ func on_body_entered(body: Node) -> void:
 	else:
 		body_mass = mass
 	
-	print(body_mass)
-	
 	# Compute speed from a to b
 	var speed = abs(prev_linear_velocity.x - body_velocity.x) + abs(prev_linear_velocity.y - body_velocity.y)
 	
