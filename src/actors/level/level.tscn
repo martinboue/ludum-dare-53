@@ -1671,7 +1671,7 @@ next_checkpoint = NodePath("../Checkpoint2")
 [node name="Checkpoint2" parent="CheckpointManager" instance=ExtResource("5_e3kwj")]
 position = Vector2(870, -698)
 
-[node name="PlayerCar" parent="." groups=["player"] instance=ExtResource("27_s0jr7")]
+[node name="PlayerCar" parent="." instance=ExtResource("27_s0jr7")]
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCar"]
 position = Vector2(34, -20)
@@ -1681,10 +1681,10 @@ process_callback = 0
 position_smoothing_enabled = true
 
 [node name="EnemyPickupCar" parent="." instance=ExtResource("25_lmnbq")]
-position = Vector2(1125, -1667)
-rotation = 2.36423
+position = Vector2(306, -592)
 
 [node name="BorderBody" type="StaticBody2D" parent="."]
+collision_mask = 0
 
 [node name="BorderShape" type="Node2D" parent="BorderBody"]
 script = ExtResource("3_8smkf")
@@ -1696,11 +1696,11 @@ collision_polygon_node_path = NodePath("../CollisionPolygon2D")
 [node name="_SS2D_RENDER" type="Node2D" parent="BorderBody/BorderShape"]
 script = ExtResource("28_1tr60")
 
-[node name="@@27618" type="Node2D" parent="BorderBody/BorderShape/_SS2D_RENDER"]
+[node name="@@124204" type="Node2D" parent="BorderBody/BorderShape/_SS2D_RENDER"]
 z_index = 20
 script = ExtResource("28_1tr60")
 
-[node name="@@27619" type="Node2D" parent="BorderBody/BorderShape/_SS2D_RENDER"]
+[node name="@@124205" type="Node2D" parent="BorderBody/BorderShape/_SS2D_RENDER"]
 z_index = 21
 script = ExtResource("28_1tr60")
 
@@ -1709,4 +1709,4 @@ script = ExtResource("28_1tr60")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BorderBody"]
 visible = false
 modulate = Color(1, 1, 1, 0.3)
-polygon = PackedVector2Array(-2655.94, 1475.25, -2646.41, -3852.58, -1314.19, -4061.96, -1812.88, -3033.34, -2123.72, -2206.82, -2172.62, -2019.46, -2203.48, -1849.37, -2211.13, -1772.3, -2213.05, -1701.34, -2208.84, -1637.09, -2198.09, -1580.14, -2181.23, -1528.1, -2159.23, -1478.13, -2132.46, -1430.22, -2101.29, -1384.33, -2066.09, -1340.44, -2027.23, -1298.51, -1940.04, -1220.45, -1842.7, -1149.92, -1738.2, -1086.69, -1519.59, -981.281, -1127.45, -848.3, -954.308, -807.208, -502.005, 604.699, -178.88, 662.224, 110.781, 502.639, 376.473, 420.072, 594.428, 419.684, 688.649, 180.936, 1105.73, -246.248, 1472.38, -350.551, 1771.73, -148.691, 2441.87, 210.059, 3147.82, 154.137, 3588.04, -326.97, 3641.86, -1373.02, 3280.04, -1916.52, 2417.59, -2025.48, 2222.51, -1527.65, 1297.47, -1759.83, 416.213, -1621.92, -310.326, -1016.49, -699.435, -829.106, -1110.86, -862.017, -1207.07, -3593.68, 5405.42, -3769.05, 4641.22, 1484.75)
+polygon = PackedVector2Array(-2655.94, 1475.25, -2646.41, -3852.58, -1314.19, -4061.96, -1812.88, -3033.34, -2123.73, -2206.82, -2172.62, -2019.46, -2203.48, -1849.37, -2211.13, -1772.3, -2213.05, -1701.34, -2208.84, -1637.09, -2198.09, -1580.14, -2181.23, -1528.1, -2159.23, -1478.13, -2132.46, -1430.22, -2101.29, -1384.33, -2066.09, -1340.43, -2027.23, -1298.51, -1940.04, -1220.44, -1842.71, -1149.91, -1738.2, -1086.69, -1519.59, -981.279, -1127.45, -848.299, -954.308, -807.207, -502.005, 604.699, -178.88, 662.224, 110.781, 502.639, 376.473, 420.072, 594.428, 419.684, 688.649, 180.936, 1105.73, -246.248, 1472.38, -350.551, 1771.73, -148.691, 2441.87, 210.059, 3147.82, 154.137, 3588.04, -326.97, 3641.86, -1373.02, 3280.04, -1916.52, 2417.59, -2025.48, 2222.51, -1527.65, 1297.47, -1759.83, 416.213, -1621.92, -310.326, -1016.49, -699.435, -829.106, -1110.85, -862.016, -1207.07, -3593.68, 5405.42, -3769.05, 4641.22, 1484.75)

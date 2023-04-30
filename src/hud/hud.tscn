@@ -9,11 +9,24 @@
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_dltuo")
 
+[node name="LifeBar" type="ProgressBar" parent="."]
+offset_left = 22.0
+offset_top = 27.0
+offset_right = 291.0
+offset_bottom = 54.0
+value = 60.0
+show_percentage = false
+
 [node name="Fps" type="Label" parent="."]
-offset_left = 13.0
-offset_top = 11.0
-offset_right = 53.0
-offset_bottom = 34.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -66.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 42.0
+grow_horizontal = 0
+text = "60 FPS"
 script = ExtResource("1_2m8oa")
 
 [node name="Objective" type="Label" parent="."]

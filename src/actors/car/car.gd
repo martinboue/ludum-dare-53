@@ -1,6 +1,8 @@
 class_name Car
 extends RigidBody2D
 
+@export var health : Health
+
 # Steering wheel = roue directrice
 @onready var steering_wheel := $SteeringWheel
 # DriveWheel = roue motrice
@@ -10,8 +12,9 @@ extends RigidBody2D
 @onready var right_wheel = $RightWheel
 @onready var left_wheel = $LeftWheel
 
-# Sources :
-# https://kidscancode.org/godot_recipes/3.x/kyn/rigidbody2d/
+# Damage
+const impact_force_to_damage := 100000.0
+const min_damage := 20
 
 # Distant between 2 wheels in pixels
 var wheel_base := 70
@@ -27,6 +30,13 @@ var acceleration := 0.0
 var turn := 0.0
 
 var steer_velocity
+var prev_linear_velocity := Vector2.ZERO
+
+func _ready() -> void:
+	if health != null:
+		contact_monitor = true
+		max_contacts_reported = 1
+		body_entered.connect(on_body_entered)
 
 func _physics_process(_delta):
 	# Acceleration
@@ -40,6 +50,22 @@ func _physics_process(_delta):
 	left_wheel.rotation = steer_direction
 	right_wheel.rotation = steer_direction
 	
+	# Store linear velocity before impact
+	# for computing collision strengh
+	prev_linear_velocity = linear_velocity
 	
+func on_body_entered(body: Node) -> void:
+	var body_velocity := Vector2.ZERO
+	if body is Car:
+		body_velocity = body.prev_linear_velocity
 	
+	# Compute velocity from a to b
+	var velocity = abs(prev_linear_velocity.x - body_velocity.x) + abs(prev_linear_velocity.y - body_velocity.y) 
+	
+	# Impact force on self = (mass / 2) * velocity^2
+	var impact_force := (mass / 2.0) * pow(velocity, 2)
+	var damage := floori(impact_force / impact_force_to_damage) - min_damage 
+	
+	if damage > 0:
+		health.damage(damage)
 

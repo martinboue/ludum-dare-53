@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://bu47qcdj0hsxb"]
+[gd_scene load_steps=13 format=3 uid="uid://bu47qcdj0hsxb"]
 
 [ext_resource type="Script" path="res://src/actors/car/car.gd" id="1_hepph"]
 [ext_resource type="PackedScene" uid="uid://dfntrurleh6e" path="res://src/actors/car/drift/drifter.tscn" id="2_d1yfr"]
+[ext_resource type="Script" path="res://src/nodes/health/health.gd" id="2_xecs6"]
 [ext_resource type="Script" path="res://src/nodes/hurtbox/hurtbox.gd" id="3_ktb65"]
 [ext_resource type="Script" path="res://src/nodes/hitbox/hitbox.gd" id="4_m66vx"]
 [ext_resource type="Texture2D" uid="uid://d0sggy7w8ixjh" path="res://src/actors/enemies/driver/driver.png" id="5_kp3xl"]
@@ -20,12 +21,19 @@ gradient = SubResource("Gradient_xa828")
 radius = 21.0
 height = 86.0
 
-[node name="EnemyPickupCar" type="RigidBody2D"]
+[node name="EnemyPickupCar" type="RigidBody2D" node_paths=PackedStringArray("health")]
 mass = 10.0
 inertia = 200.0
 linear_damp = 1.0
 angular_damp = 5.0
 script = ExtResource("1_hepph")
+health = NodePath("Health")
+
+[node name="TeslaAutoPilot" type="Node" parent="."]
+script = ExtResource("6_xuk6t")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_xecs6")
 
 [node name="RightWheel" type="MeshInstance2D" parent="."]
 position = Vector2(23, 19)
@@ -88,8 +96,7 @@ shape = SubResource("CapsuleShape2D_t4xjt")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 
-[node name="TeslaAutoPilot" type="Node" parent="."]
-script = ExtResource("6_xuk6t")
-
 [node name="Gunner" parent="." instance=ExtResource("7_davx5")]
 position = Vector2(-26, 0)
+
+[connection signal="died" from="Health" to="TeslaAutoPilot" method="_on_health_died"]

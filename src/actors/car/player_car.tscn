@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bpywquu6je2oh"]
+[gd_scene load_steps=12 format=3 uid="uid://bpywquu6je2oh"]
 
 [ext_resource type="Script" path="res://src/actors/car/car.gd" id="1_i47e1"]
 [ext_resource type="PackedScene" uid="uid://dfntrurleh6e" path="res://src/actors/car/drift/drifter.tscn" id="2_t7hbo"]
+[ext_resource type="Script" path="res://src/nodes/health/health.gd" id="2_vn0ab"]
 [ext_resource type="Script" path="res://src/nodes/hurtbox/hurtbox.gd" id="3_1ygx1"]
 [ext_resource type="Script" path="res://src/nodes/hitbox/hitbox.gd" id="4_io016"]
 [ext_resource type="Texture2D" uid="uid://5s16qsmsypi6" path="res://src/actors/car/car.png" id="5_xmik8"]
@@ -19,13 +20,20 @@ gradient = SubResource("Gradient_kmfep")
 radius = 21.0
 height = 86.0
 
-[node name="PlayerCar" type="RigidBody2D"]
+[node name="PlayerCar" type="RigidBody2D" node_paths=PackedStringArray("health") groups=["player"]]
 collision_layer = 9
 mass = 10.0
 inertia = 200.0
 linear_damp = 1.0
 angular_damp = 5.0
 script = ExtResource("1_i47e1")
+health = NodePath("Health")
+
+[node name="CarController" type="Node" parent="."]
+script = ExtResource("6_vv75n")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_vn0ab")
 
 [node name="RightWheel" type="MeshInstance2D" parent="."]
 position = Vector2(23, 19)
@@ -88,5 +96,4 @@ shape = SubResource("CapsuleShape2D_bsupm")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 
-[node name="CarController" type="Node" parent="."]
-script = ExtResource("6_vv75n")
+[connection signal="died" from="Health" to="CarController" method="_on_health_died"]
