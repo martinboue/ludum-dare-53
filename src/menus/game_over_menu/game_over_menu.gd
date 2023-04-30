@@ -1,11 +1,9 @@
-# Win menu
+# Game over menu
 extends ColorRect
-
 
 func _ready() -> void:
 	visible = false
 	modulate.a = 0
-	$RestartButton
 
 func display() -> void:
 	visible = true

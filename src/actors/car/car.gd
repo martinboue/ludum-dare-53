@@ -47,8 +47,8 @@ func _physics_process(_delta):
 	# Steering
 	var steer_direction = clampf(turn, -max_steering_angle, max_steering_angle)
 	apply_torque(steer_direction * steer_power * linear_velocity.length() / steer_scale)
-	left_wheel.rotation = steer_direction
-	right_wheel.rotation = steer_direction
+	left_wheel.rotation = move_toward(left_wheel.rotation, steer_direction, 0.1)
+	right_wheel.rotation = move_toward(right_wheel.rotation, steer_direction, 0.1)
 	
 	# Store linear velocity before impact
 	# for computing collision strengh

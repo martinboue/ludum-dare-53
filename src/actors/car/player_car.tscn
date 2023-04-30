@@ -11,11 +11,11 @@
 
 [sub_resource type="QuadMesh" id="QuadMesh_y5nal"]
 
-[sub_resource type="Gradient" id="Gradient_kmfep"]
+[sub_resource type="Gradient" id="Gradient_xxfim"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_4m37v"]
-gradient = SubResource("Gradient_kmfep")
+gradient = SubResource("Gradient_xxfim")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bsupm"]
 radius = 21.0
@@ -38,14 +38,14 @@ script = ExtResource("2_vn0ab")
 hurt_box = NodePath("../HurtBox")
 
 [node name="RightWheel" type="MeshInstance2D" parent="."]
-position = Vector2(23, 19)
-scale = Vector2(21.2286, 4.36637)
+position = Vector2(23, 16.25)
+scale = Vector2(21, 8.5)
 mesh = SubResource("QuadMesh_y5nal")
 texture = SubResource("GradientTexture2D_4m37v")
 
 [node name="LeftWheel" type="MeshInstance2D" parent="."]
-position = Vector2(23, -19)
-scale = Vector2(21.2286, 4.36637)
+position = Vector2(23, -16.25)
+scale = Vector2(21, 8.5)
 mesh = SubResource("QuadMesh_y5nal")
 texture = SubResource("GradientTexture2D_4m37v")
 

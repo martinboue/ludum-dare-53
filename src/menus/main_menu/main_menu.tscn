@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://j8ufy8t8t6n1"]
+[gd_scene load_steps=3 format=3 uid="uid://b4l2os80jjcp5"]
 
+[ext_resource type="Script" path="res://src/menus/main_menu/main_menu.gd" id="1_1k74b"]
 [ext_resource type="FontFile" uid="uid://58iqncipx06b" path="res://src/menus/font.ttf" id="1_usa4q"]
-[ext_resource type="PackedScene" uid="uid://b3oilgucxs8uq" path="res://src/actors/car/car.tscn" id="2_exx28"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -10,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_1k74b")
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
@@ -33,7 +34,7 @@ offset_right = 298.0
 offset_bottom = 457.0
 theme_override_fonts/font = ExtResource("1_usa4q")
 theme_override_font_sizes/font_size = 20
-text = "LET'S DRIFT!"
+text = "LETS DRIFT!"
 
 [node name="QuitButton" type="Button" parent="."]
 layout_mode = 0
@@ -45,12 +46,5 @@ theme_override_fonts/font = ExtResource("1_usa4q")
 theme_override_font_sizes/font_size = 20
 text = "RUN AWAY"
 
-[node name="Car" parent="." instance=ExtResource("2_exx28")]
-position = Vector2(822, 162)
-rotation = -2.703
-
-[node name="Trailer" parent="Car" index="5"]
-position = Vector2(-57, -7)
-rotation = 2.05161
-
-[editable path="Car"]
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

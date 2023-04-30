@@ -10,17 +10,17 @@
 [ext_resource type="PackedScene" uid="uid://d4ix0fdxj8r2i" path="res://src/actors/enemies/gunner/gunner.tscn" id="7_davx5"]
 [ext_resource type="PackedScene" uid="uid://yt7lsn48fu80" path="res://src/actors/car/smoke/smoke_emitter.tscn" id="9_82nkm"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_nm2p1"]
+[sub_resource type="QuadMesh" id="QuadMesh_vd8de"]
 
-[sub_resource type="Gradient" id="Gradient_xa828"]
+[sub_resource type="Gradient" id="Gradient_kmfep"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_w6lgd"]
-gradient = SubResource("Gradient_xa828")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b4v8y"]
+gradient = SubResource("Gradient_kmfep")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t4xjt"]
-radius = 21.0
-height = 86.0
+radius = 24.0
+height = 94.0
 
 [node name="EnemyPickupCar" type="RigidBody2D" node_paths=PackedStringArray("health")]
 mass = 10.0
@@ -38,16 +38,16 @@ script = ExtResource("2_xecs6")
 hurt_box = NodePath("../HurtBox")
 
 [node name="RightWheel" type="MeshInstance2D" parent="."]
-position = Vector2(23, 19)
-scale = Vector2(21.2286, 4.36637)
-mesh = SubResource("QuadMesh_nm2p1")
-texture = SubResource("GradientTexture2D_w6lgd")
+position = Vector2(23, 18.25)
+scale = Vector2(21, 8.5)
+mesh = SubResource("QuadMesh_vd8de")
+texture = SubResource("GradientTexture2D_b4v8y")
 
 [node name="LeftWheel" type="MeshInstance2D" parent="."]
-position = Vector2(23, -19)
-scale = Vector2(21.2286, 4.36637)
-mesh = SubResource("QuadMesh_nm2p1")
-texture = SubResource("GradientTexture2D_w6lgd")
+position = Vector2(23, -18.25)
+scale = Vector2(21, 8.5)
+mesh = SubResource("QuadMesh_vd8de")
+texture = SubResource("GradientTexture2D_b4v8y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708

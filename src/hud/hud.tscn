@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmjc5qdu0mx40"]
+[gd_scene load_steps=7 format=3 uid="uid://bmjc5qdu0mx40"]
 
 [ext_resource type="Script" path="res://src/actors/debug/fps.gd" id="1_2m8oa"]
 [ext_resource type="Script" path="res://src/hud/hud.gd" id="1_dltuo"]
 [ext_resource type="FontFile" uid="uid://58iqncipx06b" path="res://src/menus/font.ttf" id="2_syf02"]
 [ext_resource type="Script" path="res://src/hud/announcement/announcement.gd" id="4_7jpoi"]
 [ext_resource type="PackedScene" uid="uid://bjun55yj22nvs" path="res://src/menus/win_menu/win_menu.tscn" id="5_dymcs"]
+[ext_resource type="PackedScene" uid="uid://lv5y8aqum6ss" path="res://src/menus/game_over_menu/game_over_menu.tscn" id="6_rw5yn"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_dltuo")
@@ -51,3 +52,6 @@ script = ExtResource("4_7jpoi")
 [node name="WinMenu" parent="." instance=ExtResource("5_dymcs")]
 visible = false
 size_flags_vertical = 1
+
+[node name="GameOverMenu" parent="." instance=ExtResource("6_rw5yn")]
+visible = false

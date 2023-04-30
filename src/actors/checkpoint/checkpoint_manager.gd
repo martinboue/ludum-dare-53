@@ -19,7 +19,6 @@ func begin_checkpoint(checkpoint: Checkpoint, trailer: Trailer) -> void:
 		checkpoint.begin()
 	
 	if checkpoint == null:
-		owner.new_objective.emit("Ok well done, I didn't think you could do it...")
 		owner.won.emit()
 	elif trailer == null:
 		owner.new_objective.emit("Move your ass and go get your cargo!")
