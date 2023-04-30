@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b4l2os80jjcp5"]
 
 [ext_resource type="Script" path="res://src/menus/main_menu/main_menu.gd" id="1_1k74b"]
-[ext_resource type="FontFile" uid="uid://58iqncipx06b" path="res://src/menus/font.ttf" id="1_usa4q"]
+[ext_resource type="FontFile" uid="uid://7g6gk26flajs" path="res://src/menus/font.ttf" id="1_usa4q"]
 [ext_resource type="FontFile" uid="uid://dcb7ie0lp7lhq" path="res://src/menus/font-title.otf" id="2_abpqf"]
 [ext_resource type="PackedScene" uid="uid://bpywquu6je2oh" path="res://src/actors/car/player_car.tscn" id="4_abnmi"]
 [ext_resource type="PackedScene" uid="uid://wr5v2amc3ljx" path="res://src/actors/trailer/trailer.tscn" id="6_67yvf"]
