@@ -1,32 +1,28 @@
 # Gunner
 extends CharacterBody2D
 
-const speed := 100.0
-const stop_distance := 500.0
-
 @onready var fire_cooldown := $FireCooldown
 @onready var bullet_spawner := $BulletSpawner
 
 var target: Node2D
 var bullet_scene := preload("res://src/actors/enemies/gunner/bullet/bullet.tscn")
 
+var shooting_distance = 500.0
+var is_active := false
+
 func _ready() -> void:
 	target = get_tree().get_nodes_in_group("player")[0]
 
 func _physics_process(_delta: float) -> void:
 	look_at(target.global_position)
-		
-	var dist := target.global_position.distance_to(global_position)
-	if dist > stop_distance and self_controlled():
-		velocity = speed * global_position.direction_to(target.global_position)
-	elif dist < stop_distance:
+	
+	if is_active and can_shoot():
 		velocity = Vector2.ZERO
 		if fire_cooldown.is_stopped():
 			fire()
-	move_and_slide()
-	
-func self_controlled()-> bool:
-	return not get_parent() is Car
+
+func can_shoot() -> bool:
+	return target.global_position.distance_to(global_position) < shooting_distance
 
 func fire() -> void:
 	fire_cooldown.start()
