@@ -1,4 +1,4 @@
-[gd_scene load_steps=211 format=3 uid="uid://3ddwryrxef2q"]
+[gd_scene load_steps=213 format=3 uid="uid://3ddwryrxef2q"]
 
 [ext_resource type="Script" path="res://src/actors/level/level.gd" id="1_homev"]
 [ext_resource type="Script" path="res://src/actors/checkpoint/checkpoint_manager.gd" id="1_ru67p"]
@@ -1265,7 +1265,7 @@ width = 1.0
 
 [sub_resource type="Resource" id="Resource_vv8u4"]
 script = ExtResource("5_mfvhr")
-position = Vector2(-988.179, -737.696)
+position = Vector2(-1365.98, -866.276)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
 properties = SubResource("Resource_atgl1")
@@ -1491,9 +1491,9 @@ point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
 properties = SubResource("Resource_nvnl1")
 
-[sub_resource type="Resource" id="Resource_slre4"]
+[sub_resource type="Resource" id="Resource_wcqgd"]
 script = ExtResource("4_u6g5c")
-texture_idx = 4
+texture_idx = 10
 flip = false
 width = 1.0
 
@@ -1502,7 +1502,7 @@ script = ExtResource("5_mfvhr")
 position = Vector2(-699.438, -829.123)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_slre4")
+properties = SubResource("Resource_wcqgd")
 
 [sub_resource type="Resource" id="Resource_jwp4d"]
 script = ExtResource("4_u6g5c")
@@ -1516,6 +1516,19 @@ position = Vector2(-901.246, -817.058)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
 properties = SubResource("Resource_jwp4d")
+
+[sub_resource type="Resource" id="Resource_cayd5"]
+script = ExtResource("4_u6g5c")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_ad3lp"]
+script = ExtResource("5_mfvhr")
+position = Vector2(-166.322, -1142.92)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_cayd5")
 
 [sub_resource type="Resource" id="Resource_i87ai"]
 script = ExtResource("4_1kbqw")
@@ -1549,13 +1562,14 @@ _points = {
 26: SubResource("Resource_bbump"),
 27: SubResource("Resource_rk15d"),
 28: SubResource("Resource_ri458"),
-29: SubResource("Resource_keimt")
+29: SubResource("Resource_keimt"),
+30: SubResource("Resource_ad3lp")
 }
-_point_order = Array[int]([3, 1, 2, 6, 29, 12, 13, 14, 15, 16, 17, 18, 19, 20, 5, 7, 21, 22, 8, 23, 24, 26, 25, 27, 28, 10, 11, 9, 4, 0])
+_point_order = Array[int]([3, 1, 2, 6, 29, 12, 13, 14, 15, 16, 17, 18, 19, 20, 5, 7, 21, 22, 8, 23, 24, 26, 25, 30, 27, 28, 10, 11, 9, 4, 0])
 _constraints = {
 Array[int]([0, 3]): 15
 }
-_next_key = 30
+_next_key = 57
 _material_overrides = {}
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_2nct8"]
@@ -1718,6 +1732,6 @@ collision_polygon_node_path = NodePath("../CollisionPolygon2D")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BorderBody"]
 visible = false
 modulate = Color(1, 1, 1, 0.3)
-polygon = PackedVector2Array(-2655.94, 1475.25, -2646.41, -3852.58, -1314.29, -4061.93, -1376.02, -827.629, -901.186, -817.136, -502.001, 604.696, -178.88, 662.224, 110.781, 502.638, 376.473, 420.073, 594.428, 419.684, 688.649, 180.936, 1105.73, -246.248, 1472.38, -350.551, 1771.73, -148.691, 2441.87, 210.059, 3147.82, 154.137, 3588.04, -326.97, 3641.86, -1373.02, 3280.04, -1916.52, 2417.59, -2025.48, 2222.51, -1527.65, 1297.47, -1759.83, 416.213, -1621.92, -310.326, -1016.49, -699.438, -829.122, -988.278, -737.543, -1311.21, -3623.85, 5405.42, -3769.05, 4641.22, 1484.75)
+polygon = PackedVector2Array(-2655.94, 1475.25, -2646.41, -3852.58, -1314.29, -4061.93, -1376.02, -827.629, -901.186, -817.136, -502.001, 604.696, -178.88, 662.224, 110.781, 502.638, 376.473, 420.073, 594.428, 419.684, 688.649, 180.936, 1105.73, -246.248, 1472.38, -350.551, 1771.73, -148.691, 2441.87, 210.059, 3147.82, 154.137, 3588.04, -326.97, 3641.86, -1373.02, 3280.04, -1916.52, 2417.59, -2025.48, 2222.51, -1527.65, 1297.47, -1759.83, 416.213, -1621.92, -166.322, -1142.92, -310.325, -1016.49, -699.435, -829.107, -1366.08, -866.181, -1311.19, -3623.84, 5405.42, -3769.05, 4641.22, 1484.75)
 
 [editable path="Player"]
