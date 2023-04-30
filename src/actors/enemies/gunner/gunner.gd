@@ -6,6 +6,7 @@ extends CharacterBody2D
 
 var target: Node2D
 var bullet_scene := preload("res://src/actors/enemies/gunner/bullet/bullet.tscn")
+var blood_scene := preload("res://src/actors/enemies/blood/blood.tscn")
 
 var shooting_distance = 500.0
 var is_active := false
@@ -33,5 +34,7 @@ func fire() -> void:
 	add_child(bullet)
 
 func _on_health_died() -> void:
+	var blood: Blood = blood_scene.instantiate()
+	blood.global_position = global_position
+	get_parent().add_child(blood)
 	queue_free()
-

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ca8c6soh4efp6"]
+
+[ext_resource type="Texture2D" uid="uid://dacsytn0htjs8" path="res://src/actors/enemies/blood/blood.png" id="1_q3xtk"]
+[ext_resource type="Script" path="res://src/actors/enemies/blood/blood.gd" id="2_ev516"]
+
+[node name="Blood" type="Sprite2D"]
+z_index = -1
+texture = ExtResource("1_q3xtk")
+script = ExtResource("2_ev516")
