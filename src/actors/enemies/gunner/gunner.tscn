@@ -23,7 +23,6 @@ texture = ExtResource("1_cqpih")
 shape = SubResource("CircleShape2D_wtgqe")
 
 [node name="FireCooldown" type="Timer" parent="."]
-wait_time = 3.0
 one_shot = true
 
 [node name="HurtBox" type="Area2D" parent="."]

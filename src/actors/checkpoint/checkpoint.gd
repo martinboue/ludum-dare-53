@@ -30,6 +30,7 @@ func stop() -> void:
 	tween.tween_callback(queue_free)
 
 func _on_body_entered(body: Node2D) -> void:
+	print("collision")
 	if not body is Car:
 		return
 	
