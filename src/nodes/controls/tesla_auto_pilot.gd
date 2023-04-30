@@ -1,6 +1,9 @@
 extends Node
 
-@export var target : Car
+var target: Node2D
+
+func _ready():
+	target = get_tree().get_nodes_in_group("player")[0]
 
 func _physics_process(_delta):
 	var car_to_pilot = get_parent()

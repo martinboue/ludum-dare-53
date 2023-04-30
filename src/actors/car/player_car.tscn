@@ -1,0 +1,92 @@
+[gd_scene load_steps=11 format=3 uid="uid://bpywquu6je2oh"]
+
+[ext_resource type="Script" path="res://src/actors/car/car.gd" id="1_i47e1"]
+[ext_resource type="PackedScene" uid="uid://dfntrurleh6e" path="res://src/actors/car/drift/drifter.tscn" id="2_t7hbo"]
+[ext_resource type="Script" path="res://src/nodes/hurtbox/hurtbox.gd" id="3_1ygx1"]
+[ext_resource type="Script" path="res://src/nodes/hitbox/hitbox.gd" id="4_io016"]
+[ext_resource type="Texture2D" uid="uid://5s16qsmsypi6" path="res://src/actors/car/car.png" id="5_xmik8"]
+[ext_resource type="Script" path="res://src/nodes/controls/car_controller.gd" id="6_vv75n"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_y5nal"]
+
+[sub_resource type="Gradient" id="Gradient_kmfep"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4m37v"]
+gradient = SubResource("Gradient_kmfep")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bsupm"]
+radius = 21.0
+height = 86.0
+
+[node name="PlayerCar" type="RigidBody2D"]
+collision_layer = 9
+mass = 10.0
+inertia = 200.0
+linear_damp = 1.0
+angular_damp = 5.0
+script = ExtResource("1_i47e1")
+
+[node name="RightWheel" type="MeshInstance2D" parent="."]
+position = Vector2(23, 19)
+scale = Vector2(21.2286, 4.36637)
+mesh = SubResource("QuadMesh_y5nal")
+texture = SubResource("GradientTexture2D_4m37v")
+
+[node name="LeftWheel" type="MeshInstance2D" parent="."]
+position = Vector2(23, -19)
+scale = Vector2(21.2286, 4.36637)
+mesh = SubResource("QuadMesh_y5nal")
+texture = SubResource("GradientTexture2D_4m37v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("5_xmik8")
+
+[node name="DriveWheel" type="Marker2D" parent="."]
+position = Vector2(-24, 0)
+
+[node name="SteeringWheel" type="Marker2D" parent="."]
+position = Vector2(23, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_bsupm")
+
+[node name="Drifter" parent="." instance=ExtResource("2_t7hbo")]
+position = Vector2(1, -1)
+
+[node name="BackLeft" type="Marker2D" parent="Drifter"]
+position = Vector2(-25, -17)
+
+[node name="FrontLeft" type="Marker2D" parent="Drifter"]
+position = Vector2(22, -17)
+
+[node name="FrontRight" type="Marker2D" parent="Drifter"]
+position = Vector2(22, 20)
+
+[node name="BackRight" type="Marker2D" parent="Drifter"]
+position = Vector2(-25, 18)
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("3_1ygx1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_bsupm")
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("4_io016")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_bsupm")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="CarController" type="Node" parent="."]
+script = ExtResource("6_vv75n")
