@@ -12,6 +12,8 @@ var shooting_distance = 500.0
 var is_active := false
 var is_triggered := true
 
+signal activated
+
 func _ready() -> void:
 	target = get_tree().get_nodes_in_group("player")[0]
 
@@ -33,6 +35,10 @@ func fire() -> void:
 	bullet.source = bullet_spawner
 	bullet.target = target
 	add_child(bullet)
+	
+func activate():
+	is_active = true
+	activated.emit()
 
 func _on_health_died() -> void:
 	var blood: Blood = blood_scene.instantiate()
