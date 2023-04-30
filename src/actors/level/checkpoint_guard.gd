@@ -8,7 +8,7 @@ func _ready() -> void:
 		return
 	checkpoint.confirmed.connect(_on_checkpoint_confirmed)
 	
-func _on_checkpoint_confirmed(trailer: Trailer):
+func _on_checkpoint_confirmed(_trailer: Trailer):
 	for c in get_children():
 		if 'is_active' in c :
 			c.is_active = true

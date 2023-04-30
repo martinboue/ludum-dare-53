@@ -5,9 +5,6 @@ const unkilled_enemy_weight := 10
 const damage_received_weight := 1
 const timer_weight := 1
 
-# Context
-var level: Level
-
 # Score
 var time := 0.0
 var unkilled_enemies := 0
@@ -16,7 +13,7 @@ var damages_received := 0
 func _ready() -> void:
 	set_process(false)
 
-func start(level: Level) -> void:
+func start() -> void:
 	set_process(true)
 	time = 0.0
 
@@ -32,7 +29,6 @@ func _process(delta: float) -> void:
 	time += delta
 
 func get_unkilled_enemies_score() -> int:
-	print(unkilled_enemies, " / ", unkilled_enemy_weight)
 	return - unkilled_enemies * unkilled_enemy_weight
 
 func get_damages_received_score() -> int:
