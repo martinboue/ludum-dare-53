@@ -29,8 +29,9 @@ var trailer: Trailer
 var acceleration := 0.0
 var turn := 0.0
 
-var steer_velocity
+var steer_velocity := 0.08
 var prev_linear_velocity := Vector2.ZERO
+
 
 func _ready() -> void:
 	if health != null:
@@ -47,8 +48,8 @@ func _physics_process(_delta):
 	# Steering
 	var steer_direction = clampf(turn, -max_steering_angle, max_steering_angle)
 	apply_torque(steer_direction * steer_power * linear_velocity.length() / steer_scale)
-	left_wheel.rotation = move_toward(left_wheel.rotation, steer_direction, 0.1)
-	right_wheel.rotation = move_toward(right_wheel.rotation, steer_direction, 0.1)
+	left_wheel.rotation = move_toward(left_wheel.rotation, steer_direction, steer_velocity)
+	right_wheel.rotation = move_toward(right_wheel.rotation, steer_direction, steer_velocity)
 	
 	# Store linear velocity before impact
 	# for computing collision strengh
