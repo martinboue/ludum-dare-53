@@ -10,9 +10,9 @@ func _ready() -> void:
 	
 func _on_checkpoint_confirmed(_trailer: Trailer):
 	for c in get_children():
-		if 'is_active' in c :
-			c.is_active = true
+		if c.has_method('activate') :
+			c.activate()
 		for d in c.get_children():
-			if 'is_active' in d :
-				d.is_active = true
+			if d.has_method('activate') :
+				d.activate()
 	checkpoint.confirmed.disconnect(_on_checkpoint_confirmed)

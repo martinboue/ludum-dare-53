@@ -11,5 +11,11 @@ func _ready():
 
 func _on_trigger_area_entered(_body: Node2D):
 	if controlled_node.is_active:
-		controlled_node.is_triggered = true
-		trigger_area.body_entered.disconnect(_on_trigger_area_entered)
+		set_controlled_node_triggered()
+	else:
+		controlled_node.activated.connect(set_controlled_node_triggered)
+			
+func set_controlled_node_triggered() -> void:
+	controlled_node.is_triggered = true
+	trigger_area.body_entered.disconnect(_on_trigger_area_entered)
+		
