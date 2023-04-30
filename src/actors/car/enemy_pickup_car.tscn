@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bu47qcdj0hsxb"]
+[gd_scene load_steps=16 format=3 uid="uid://bu47qcdj0hsxb"]
 
 [ext_resource type="Script" path="res://src/actors/car/car.gd" id="1_hepph"]
 [ext_resource type="PackedScene" uid="uid://dfntrurleh6e" path="res://src/actors/car/drift/drifter.tscn" id="2_d1yfr"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d0sggy7w8ixjh" path="res://src/actors/enemies/driver/driver.png" id="5_kp3xl"]
 [ext_resource type="Script" path="res://src/nodes/controls/tesla_auto_pilot.gd" id="6_xuk6t"]
 [ext_resource type="PackedScene" uid="uid://d4ix0fdxj8r2i" path="res://src/actors/enemies/gunner/gunner.tscn" id="7_davx5"]
+[ext_resource type="Script" path="res://src/actors/enemies/aggro_trigger.gd" id="9_6o3f0"]
 [ext_resource type="PackedScene" uid="uid://yt7lsn48fu80" path="res://src/actors/car/smoke/smoke_emitter.tscn" id="9_82nkm"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_nm2p1"]
@@ -22,6 +23,9 @@ gradient = SubResource("Gradient_xa828")
 radius = 21.0
 height = 86.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_mamai"]
+radius = 53.3301
+
 [node name="EnemyPickupCar" type="RigidBody2D" node_paths=PackedStringArray("health")]
 mass = 10.0
 inertia = 200.0
@@ -32,6 +36,10 @@ health = NodePath("Health")
 
 [node name="TeslaAutoPilot" type="Node" parent="."]
 script = ExtResource("6_xuk6t")
+
+[node name="AggroTrigger" type="Node" parent="TeslaAutoPilot" node_paths=PackedStringArray("trigger_area")]
+script = ExtResource("9_6o3f0")
+trigger_area = NodePath("../../TriggerArea")
 
 [node name="Health" type="Node" parent="." node_paths=PackedStringArray("hurt_box")]
 script = ExtResource("2_xecs6")
@@ -101,8 +109,21 @@ shape = SubResource("CapsuleShape2D_t4xjt")
 [node name="Gunner" parent="." instance=ExtResource("7_davx5")]
 position = Vector2(-26, 0)
 
+[node name="AggroTrigger" type="Node" parent="Gunner" node_paths=PackedStringArray("trigger_area")]
+script = ExtResource("9_6o3f0")
+trigger_area = NodePath("../../TriggerArea")
+
 [node name="SmokeEmitter" parent="." node_paths=PackedStringArray("health") instance=ExtResource("9_82nkm")]
 position = Vector2(35, 0)
 health = NodePath("../Health")
+
+[node name="TriggerArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+scale = Vector2(6.9879, 6.63716)
+shape = SubResource("CircleShape2D_mamai")
 
 [connection signal="died" from="Health" to="TeslaAutoPilot" method="_on_health_died"]

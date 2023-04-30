@@ -9,6 +9,7 @@ var bullet_scene := preload("res://src/actors/enemies/gunner/bullet/bullet.tscn"
 
 var shooting_distance = 500.0
 var is_active := false
+var is_triggered := true
 
 func _ready() -> void:
 	target = get_tree().get_nodes_in_group("player")[0]
@@ -16,7 +17,7 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	look_at(target.global_position)
 	
-	if is_active and can_shoot():
+	if is_active and is_triggered and can_shoot():
 		velocity = Vector2.ZERO
 		if fire_cooldown.is_stopped():
 			fire()
