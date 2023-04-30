@@ -32,8 +32,9 @@ health = NodePath("Health")
 [node name="CarController" type="Node" parent="."]
 script = ExtResource("6_vv75n")
 
-[node name="Health" type="Node" parent="."]
+[node name="Health" type="Node" parent="." node_paths=PackedStringArray("hurt_box")]
 script = ExtResource("2_vn0ab")
+hurt_box = NodePath("../HurtBox")
 
 [node name="RightWheel" type="MeshInstance2D" parent="."]
 position = Vector2(23, 19)

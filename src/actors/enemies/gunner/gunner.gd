@@ -35,5 +35,6 @@ func fire() -> void:
 	bullet.target = target
 	add_child(bullet)
 
-func _on_hurt_box_on_hurt(_hitbox) -> void:
+func _on_health_died() -> void:
 	queue_free()
+

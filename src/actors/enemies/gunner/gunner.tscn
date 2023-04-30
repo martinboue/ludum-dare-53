@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://d4ix0fdxj8r2i"]
+[gd_scene load_steps=6 format=3 uid="uid://d4ix0fdxj8r2i"]
 
 [ext_resource type="Texture2D" uid="uid://bec37s7d2so0" path="res://src/actors/enemies/gunner/gunner.png" id="1_cqpih"]
 [ext_resource type="Script" path="res://src/actors/enemies/gunner/gunner.gd" id="1_t8oqq"]
+[ext_resource type="Script" path="res://src/nodes/health/health.gd" id="2_qfo50"]
 [ext_resource type="Script" path="res://src/nodes/hurtbox/hurtbox.gd" id="3_gno4b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wtgqe"]
@@ -11,6 +12,11 @@ radius = 12.0
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_t8oqq")
+
+[node name="Health" type="Node" parent="." node_paths=PackedStringArray("hurt_box")]
+script = ExtResource("2_qfo50")
+max_health = 1
+hurt_box = NodePath("../HurtBox")
 
 [node name="BulletSpawner" type="Marker2D" parent="."]
 position = Vector2(15, 4)
@@ -33,4 +39,4 @@ script = ExtResource("3_gno4b")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CircleShape2D_wtgqe")
 
-[connection signal="on_hurt" from="HurtBox" to="." method="_on_hurt_box_on_hurt"]
+[connection signal="died" from="Health" to="." method="_on_health_died"]
