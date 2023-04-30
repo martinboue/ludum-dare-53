@@ -33,6 +33,9 @@ func set_health(new_health: int) -> void:
 	if is_dead():
 		health = 0
 		died.emit()
+		
+func restore_max_health() -> void:
+	set_health(max_health)
 	
 func is_dead() -> bool:
 	return health <= 0
