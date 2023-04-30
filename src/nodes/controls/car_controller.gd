@@ -1,3 +1,4 @@
+class_name CarController
 extends Node
 
 func _physics_process(_delta):

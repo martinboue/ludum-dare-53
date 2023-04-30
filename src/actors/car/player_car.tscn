@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bpywquu6je2oh"]
+[gd_scene load_steps=12 format=3 uid="uid://bpywquu6je2oh"]
 
 [ext_resource type="Script" path="res://src/actors/car/player_car.gd" id="1_wo8g8"]
 [ext_resource type="PackedScene" uid="uid://dfntrurleh6e" path="res://src/actors/car/drift/drifter.tscn" id="2_t7hbo"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://src/nodes/hurtbox/hurtbox.gd" id="3_1ygx1"]
 [ext_resource type="Script" path="res://src/nodes/hitbox/hitbox.gd" id="4_io016"]
 [ext_resource type="Texture2D" uid="uid://5s16qsmsypi6" path="res://src/actors/car/car.png" id="5_xmik8"]
-[ext_resource type="Script" path="res://src/nodes/controls/car_controller.gd" id="6_vv75n"]
 [ext_resource type="PackedScene" uid="uid://yt7lsn48fu80" path="res://src/actors/car/smoke/smoke_emitter.tscn" id="8_rcsa8"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_y5nal"]
@@ -29,9 +28,6 @@ linear_damp = 1.0
 angular_damp = 5.0
 script = ExtResource("1_wo8g8")
 health = NodePath("Health")
-
-[node name="CarController" type="Node" parent="."]
-script = ExtResource("6_vv75n")
 
 [node name="Health" type="Node" parent="." node_paths=PackedStringArray("hurt_box")]
 script = ExtResource("2_vn0ab")
@@ -104,4 +100,3 @@ position = Vector2(32, 0)
 health = NodePath("../Health")
 
 [connection signal="damaged" from="Health" to="." method="_on_health_damaged"]
-[connection signal="died" from="Health" to="CarController" method="_on_health_died"]

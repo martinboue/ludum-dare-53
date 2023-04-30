@@ -3,7 +3,7 @@ extends Control
 
 
 func _ready() -> void:
-	$StartButton.grab_focus()
+	$VBoxContainer/StartButton.grab_focus()
 
 func _on_start_button_pressed() -> void:
 	SceneTransition.change_scene("res://main.tscn")

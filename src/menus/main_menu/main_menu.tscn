@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4l2os80jjcp5"]
+[gd_scene load_steps=7 format=3 uid="uid://b4l2os80jjcp5"]
 
 [ext_resource type="Script" path="res://src/menus/main_menu/main_menu.gd" id="1_1k74b"]
 [ext_resource type="FontFile" uid="uid://58iqncipx06b" path="res://src/menus/font.ttf" id="1_usa4q"]
+[ext_resource type="FontFile" uid="uid://dcb7ie0lp7lhq" path="res://src/menus/font-title.otf" id="2_abpqf"]
+[ext_resource type="PackedScene" uid="uid://bpywquu6je2oh" path="res://src/actors/car/player_car.tscn" id="4_abnmi"]
+[ext_resource type="PackedScene" uid="uid://wr5v2amc3ljx" path="res://src/actors/trailer/trailer.tscn" id="6_67yvf"]
+[ext_resource type="Script" path="res://src/menus/main_menu/drift_controller.gd" id="6_l64mj"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -18,11 +22,12 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 153.0
-offset_top = -28.0
-offset_right = 387.0
-offset_bottom = 28.0
+offset_top = -126.0
+offset_right = 819.0
+offset_bottom = 50.0
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_usa4q")
+theme_override_colors/font_color = Color(0.239216, 0.203922, 0.176471, 1)
+theme_override_fonts/font = ExtResource("2_abpqf")
 theme_override_font_sizes/font_size = 100
 text = "Drifting Trailer"
 
@@ -36,29 +41,47 @@ offset_top = 33.0
 offset_right = 623.0
 offset_bottom = 141.0
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_usa4q")
+theme_override_colors/font_color = Color(0.584314, 0.431373, 0.270588, 1)
+theme_override_fonts/font = ExtResource("2_abpqf")
 theme_override_font_sizes/font_size = 40
 text = "The cargo transporter on steroids"
 
-[node name="StartButton" type="Button" parent="."]
-layout_mode = 0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
 offset_left = 154.0
-offset_top = 473.0
-offset_right = 298.0
-offset_bottom = 505.0
+offset_top = 134.0
+offset_right = 389.0
+offset_bottom = 302.0
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("1_usa4q")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 30
 text = "LETS DRIFT!"
 
-[node name="QuitButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 154.0
-offset_top = 529.0
-offset_right = 298.0
-offset_bottom = 565.0
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("1_usa4q")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 30
 text = "RUN AWAY"
 
-[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[node name="PlayerCar" parent="." instance=ExtResource("4_abnmi")]
+position = Vector2(-125, 655)
+
+[node name="DriftController" type="Node" parent="PlayerCar" node_paths=PackedStringArray("target")]
+script = ExtResource("6_l64mj")
+target = NodePath("../../Marker2D")
+
+[node name="Trailer" parent="PlayerCar" instance=ExtResource("6_67yvf")]
+position = Vector2(-57, 0)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(985, 377)
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
