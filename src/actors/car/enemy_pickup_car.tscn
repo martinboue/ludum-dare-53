@@ -123,7 +123,7 @@ collision_mask = 8
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
-scale = Vector2(6.9879, 6.63716)
+scale = Vector2(38.9117, 42.1601)
 shape = SubResource("CircleShape2D_mamai")
 
 [connection signal="died" from="Health" to="TeslaAutoPilot" method="_on_health_died"]
