@@ -55,16 +55,30 @@ func _physics_process(_delta):
 	prev_linear_velocity = linear_velocity
 	
 func on_body_entered(body: Node) -> void:
-	var body_velocity := Vector2.ZERO
+	# Do not take damage from his trailer
+	if body == trailer:
+		return
+		
+	var body_velocity : Vector2
 	if body is Car:
 		body_velocity = body.prev_linear_velocity
+	else:
+		body_velocity = Vector2.ZERO
+		
+	var body_mass: float
+	if body is RigidBody2D:
+		body_mass = body.mass
+	else:
+		body_mass = mass
 	
-	# Compute velocity from a to b
-	var velocity = abs(prev_linear_velocity.x - body_velocity.x) + abs(prev_linear_velocity.y - body_velocity.y) 
+	print(body_mass)
+	
+	# Compute speed from a to b
+	var speed = abs(prev_linear_velocity.x - body_velocity.x) + abs(prev_linear_velocity.y - body_velocity.y)
 	
 	# Impact force on self = (mass / 2) * velocity^2
-	var impact_force := (mass / 2.0) * pow(velocity, 2)
-	var damage := floori(impact_force / impact_force_to_damage) - min_damage 
+	var impact_force := (body_mass / 2.0) * pow(speed, 2)
+	var damage := floori(impact_force / impact_force_to_damage) - min_damage
 	
 	if damage > 0:
 		health.damage(damage)

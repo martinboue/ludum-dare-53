@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bu47qcdj0hsxb"]
+[gd_scene load_steps=14 format=3 uid="uid://bu47qcdj0hsxb"]
 
 [ext_resource type="Script" path="res://src/actors/car/car.gd" id="1_hepph"]
 [ext_resource type="PackedScene" uid="uid://dfntrurleh6e" path="res://src/actors/car/drift/drifter.tscn" id="2_d1yfr"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d0sggy7w8ixjh" path="res://src/actors/enemies/driver/driver.png" id="5_kp3xl"]
 [ext_resource type="Script" path="res://src/nodes/controls/tesla_auto_pilot.gd" id="6_xuk6t"]
 [ext_resource type="PackedScene" uid="uid://d4ix0fdxj8r2i" path="res://src/actors/enemies/gunner/gunner.tscn" id="7_davx5"]
+[ext_resource type="PackedScene" uid="uid://yt7lsn48fu80" path="res://src/actors/car/smoke/smoke_emitter.tscn" id="9_82nkm"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_nm2p1"]
 
@@ -99,5 +100,8 @@ shape = SubResource("CapsuleShape2D_t4xjt")
 
 [node name="Gunner" parent="." instance=ExtResource("7_davx5")]
 position = Vector2(-26, 0)
+
+[node name="SmokeEmitter" parent="." node_paths=PackedStringArray("health") instance=ExtResource("9_82nkm")]
+health = NodePath("../Health")
 
 [connection signal="died" from="Health" to="TeslaAutoPilot" method="_on_health_died"]

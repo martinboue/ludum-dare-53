@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://yt7lsn48fu80"]
+
+[ext_resource type="Script" path="res://src/actors/car/smoke/smoke_emitter.gd" id="1_4xkp1"]
+[ext_resource type="Texture2D" uid="uid://7pg7df05vb61" path="res://src/actors/car/smoke/fire_01.png" id="1_f0vjr"]
+[ext_resource type="Texture2D" uid="uid://bikmoendnrnhn" path="res://src/actors/car/smoke/smoke_01.png" id="3_nxwg8"]
+
+[sub_resource type="Gradient" id="Gradient_vcdt2"]
+offsets = PackedFloat32Array(0.27248, 0.997275)
+colors = PackedColorArray(0.593134, 0.593134, 0.593134, 1, 0.41598, 0.41598, 0.41598, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_e0ye5"]
+gradient = SubResource("Gradient_vcdt2")
+
+[sub_resource type="Curve" id="Curve_1lw8s"]
+_data = [Vector2(0, 0), 0.0, 5.92066, 0, 0, Vector2(0.542714, 0.981818), -0.0657851, -0.0657851, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_wrs5n"]
+curve = SubResource("Curve_1lw8s")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ny15v"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 50.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 8.0
+angular_velocity_max = 10.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+linear_accel_min = 50.0
+linear_accel_max = 100.0
+scale_min = 0.1
+scale_max = 0.1
+scale_curve = SubResource("CurveTexture_wrs5n")
+color_ramp = SubResource("GradientTexture1D_e0ye5")
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_en5yx"]
+gradient = SubResource("Gradient_vcdt2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g16bm"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 30.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+angular_velocity_max = 30.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+linear_accel_min = 50.0
+linear_accel_max = 100.0
+scale_min = 0.1
+scale_max = 0.1
+scale_curve = SubResource("CurveTexture_wrs5n")
+color_ramp = SubResource("GradientTexture1D_en5yx")
+
+[node name="SmokeEmitter" type="Node2D"]
+script = ExtResource("1_4xkp1")
+
+[node name="FireEmitter1" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_ny15v")
+texture = ExtResource("1_f0vjr")
+
+[node name="SmokeEmitter1" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_g16bm")
+texture = ExtResource("3_nxwg8")
+lifetime = 1.5
