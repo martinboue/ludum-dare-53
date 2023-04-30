@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmjc5qdu0mx40"]
+[gd_scene load_steps=8 format=3 uid="uid://bmjc5qdu0mx40"]
 
 [ext_resource type="Script" path="res://src/actors/debug/fps.gd" id="1_2m8oa"]
 [ext_resource type="Script" path="res://src/hud/hud.gd" id="1_dltuo"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://src/hud/announcement/announcement.gd" id="4_7jpoi"]
 [ext_resource type="PackedScene" uid="uid://bjun55yj22nvs" path="res://src/menus/win_menu/win_menu.tscn" id="5_dymcs"]
 [ext_resource type="PackedScene" uid="uid://lv5y8aqum6ss" path="res://src/menus/game_over_menu/game_over_menu.tscn" id="6_rw5yn"]
+[ext_resource type="Script" path="res://src/hud/time.gd" id="7_agfso"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_dltuo")
@@ -19,14 +20,11 @@ value = 60.0
 show_percentage = false
 
 [node name="Fps" type="Label" parent="."]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -66.0
-offset_top = 16.0
-offset_right = -16.0
-offset_bottom = 42.0
-grow_horizontal = 0
+offset_left = 25.0
+offset_top = 74.0
+offset_right = 75.0
+offset_bottom = 100.0
+size_flags_horizontal = 0
 text = "60 FPS"
 script = ExtResource("1_2m8oa")
 
@@ -55,3 +53,16 @@ size_flags_vertical = 1
 
 [node name="GameOverMenu" parent="." instance=ExtResource("6_rw5yn")]
 visible = false
+
+[node name="Time" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -87.0
+offset_top = 19.0
+offset_right = -37.0
+offset_bottom = 45.0
+grow_horizontal = 0
+size_flags_horizontal = 0
+text = "60 FPS"
+script = ExtResource("7_agfso")

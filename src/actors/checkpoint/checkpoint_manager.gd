@@ -19,7 +19,7 @@ func begin_checkpoint(checkpoint: Checkpoint, trailer: Trailer) -> void:
 		checkpoint.begin()
 	
 	if checkpoint == null:
-		owner.won.emit()
+		owner.end()
 	elif trailer == null:
 		owner.new_objective.emit("Move your ass and go get your cargo!")
 	else:

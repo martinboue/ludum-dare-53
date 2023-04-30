@@ -4,6 +4,7 @@ extends Node
 signal died()
 signal health_changed(health: int)
 signal max_health_changed(max_health: int)
+signal damaged(damage: int)
 
 @export var max_health := 100
 @export var hurt_box : HurtBox
@@ -20,6 +21,7 @@ func on_hurtbox_hurt(hitbox: HitBox) -> void:
 
 func damage(amount: int) -> void:
 	set_health(health - amount)
+	damaged.emit(amount)
 
 func set_health(new_health: int) -> void:
 	if is_dead():

@@ -26,7 +26,7 @@ height = 94.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_mamai"]
 radius = 53.3301
 
-[node name="EnemyPickupCar" type="RigidBody2D" node_paths=PackedStringArray("health")]
+[node name="EnemyPickupCar" type="RigidBody2D" node_paths=PackedStringArray("health") groups=["enemy"]]
 mass = 10.0
 inertia = 200.0
 linear_damp = 1.0

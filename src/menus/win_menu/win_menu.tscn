@@ -10,9 +10,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -225.0
-offset_top = -300.0
+offset_top = -250.0
 offset_right = 225.0
-offset_bottom = 300.0
+offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -28,9 +28,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -171.5
-offset_top = -259.0
+offset_top = -217.0
 offset_right = 171.5
-offset_bottom = -203.0
+offset_bottom = -161.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -48,9 +48,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -171.5
-offset_top = -228.0
+offset_top = -186.0
 offset_right = 171.5
-offset_bottom = -172.0
+offset_bottom = -130.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -58,6 +58,93 @@ theme_override_fonts/font = ExtResource("1_7vmpq")
 theme_override_font_sizes/font_size = 20
 text = "I didn't think you could do it"
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.0
+offset_top = -97.0
+offset_right = 173.0
+offset_bottom = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="Time" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_7vmpq")
+theme_override_font_sizes/font_size = 30
+text = "Time"
+vertical_alignment = 1
+
+[node name="TimeScore" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_7vmpq")
+theme_override_font_sizes/font_size = 30
+text = "-34"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="UnkilledEnemies" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_7vmpq")
+theme_override_font_sizes/font_size = 30
+text = "Unkilled enemies"
+vertical_alignment = 1
+
+[node name="UnkilledEnemiesScore" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_7vmpq")
+theme_override_font_sizes/font_size = 30
+text = "-50"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="DamageReceived" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_7vmpq")
+theme_override_font_sizes/font_size = 30
+text = "Damages received"
+vertical_alignment = 1
+
+[node name="DamageReceivedScore" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_7vmpq")
+theme_override_font_sizes/font_size = 30
+text = "-200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Total" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_7vmpq")
+theme_override_font_sizes/font_size = 45
+text = "Total"
+vertical_alignment = 1
+
+[node name="TotalScore" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_7vmpq")
+theme_override_font_sizes/font_size = 45
+text = "-284"
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="RestartButton" type="Button" parent="."]
@@ -68,9 +155,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -112.5
-offset_top = 226.0
+offset_top = 165.0
 offset_right = 112.5
-offset_bottom = 275.0
+offset_bottom = 214.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_7vmpq")
@@ -93,7 +180,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_7vmpq")
 theme_override_font_sizes/font_size = 20
-text = "if you think you can..."
+text = "my grandma could have done it..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
