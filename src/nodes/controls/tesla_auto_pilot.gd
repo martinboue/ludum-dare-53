@@ -6,13 +6,14 @@ var target: Node2D
 var car_to_pilot: Car
 
 var is_active := false
+var is_triggered := true
 
 func _ready():
 	target = get_tree().get_nodes_in_group("player")[0]
 	car_to_pilot = get_parent()
 
 func _physics_process(_delta) -> void:
-	if car_to_pilot == null or not is_active:
+	if car_to_pilot == null or not is_active or not is_triggered:
 		return 
 	car_to_pilot.acceleration = speed
 	car_to_pilot.turn = car_to_pilot.get_angle_to(target.global_position)
