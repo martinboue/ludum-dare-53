@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://82qtavt5xcbw"
-path="res://.godot/imported/road_edge.png-c127750eef14a8ff7960bdce9675ee92.ctex"
+uid="uid://bs60l2mk1aprx"
+path="res://.godot/imported/inner_light_sand.png-b855995c1c9ccbceda483b87f2b9ffd4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/actors/level/road_edge.png"
-dest_files=["res://.godot/imported/road_edge.png-c127750eef14a8ff7960bdce9675ee92.ctex"]
+source_file="res://src/actors/level/assets/road/inner_light_sand.png"
+dest_files=["res://.godot/imported/inner_light_sand.png-b855995c1c9ccbceda483b87f2b9ffd4.ctex"]
 
 [params]
 
