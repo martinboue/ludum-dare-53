@@ -1,6 +1,6 @@
 shader_type canvas_item;
 
-uniform sampler2D noise_tex;
+uniform sampler2D noise_tex : repeat_enable;
 uniform float cut_factor;
 uniform float border;
 
