@@ -1,4 +1,4 @@
-[gd_scene load_steps=209 format=3 uid="uid://3ddwryrxef2q"]
+[gd_scene load_steps=210 format=3 uid="uid://3ddwryrxef2q"]
 
 [ext_resource type="Script" path="res://src/actors/level/level.gd" id="1_homev"]
 [ext_resource type="Script" path="res://src/actors/checkpoint/checkpoint_manager.gd" id="1_ru67p"]
@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bmrwwceat0ctj" path="res://src/actors/level/tilemap.png" id="2_xkqk4"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/shapes/shape_closed.gd" id="3_8smkf"]
 [ext_resource type="Texture2D" uid="uid://buqf6udyd7o73" path="res://src/actors/level/sand_1.png" id="3_n4wds"]
-[ext_resource type="PackedScene" uid="uid://d4ix0fdxj8r2i" path="res://src/actors/enemies/gunner/gunner.tscn" id="3_oixce"]
+[ext_resource type="PackedScene" uid="uid://c2uhb7qqxdixe" path="res://src/actors/enemies/gunner/gunner.tscn" id="3_oixce"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/shapes/point_array.gd" id="4_1kbqw"]
 [ext_resource type="Texture2D" uid="uid://lue7y6a6isxh" path="res://src/actors/level/sand_2.png" id="4_hvrmr"]
 [ext_resource type="PackedScene" uid="uid://bkfyfntime63o" path="res://src/actors/obsctacles/cardboard_box/cardboard_box.tscn" id="4_og7vw"]
@@ -25,6 +25,8 @@
 [ext_resource type="Texture2D" uid="uid://dyy852cpqsk7x" path="res://src/actors/level/assets/road/normal_3.png" id="19_nd0di"]
 [ext_resource type="Texture2D" uid="uid://8tfl654c3n8r" path="res://src/actors/level/assets/rocks/rock_tile.png" id="20_8sgcb"]
 [ext_resource type="Texture2D" uid="uid://dkdex51v08r0g" path="res://src/actors/level/assets/rocks/rocks.png" id="20_w1yvt"]
+[ext_resource type="Script" path="res://src/nodes/controls/follow_target.gd" id="21_4wmb6"]
+[ext_resource type="Script" path="res://src/actors/level/checkpoint_guard.gd" id="22_baxp0"]
 [ext_resource type="PackedScene" uid="uid://bu47qcdj0hsxb" path="res://src/actors/car/enemy_pickup_car.tscn" id="25_lmnbq"]
 [ext_resource type="PackedScene" uid="uid://bpywquu6je2oh" path="res://src/actors/car/player_car.tscn" id="27_s0jr7"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/shapes/shape_render.gd" id="28_1tr60"]
@@ -1645,8 +1647,27 @@ script = ExtResource("15_gcnxo")
 _points = SubResource("Resource_xlvgl")
 shape_material = SubResource("Resource_v8xjl")
 
-[node name="Gunner" parent="." instance=ExtResource("3_oixce")]
+[node name="CheckpointGuard" type="Node" parent="." node_paths=PackedStringArray("checkpoint")]
+script = ExtResource("22_baxp0")
+checkpoint = NodePath("../CheckpointManager/Checkpoint")
+
+[node name="Gunner" parent="CheckpointGuard" instance=ExtResource("3_oixce")]
 position = Vector2(879, 149)
+
+[node name="FollowTarget" type="Node" parent="CheckpointGuard/Gunner"]
+script = ExtResource("21_4wmb6")
+
+[node name="EnemyPickupCar2" parent="CheckpointGuard" instance=ExtResource("25_lmnbq")]
+position = Vector2(1125, -1667)
+rotation = 2.36423
+
+[node name="CheckpointGuard2" type="Node" parent="." node_paths=PackedStringArray("checkpoint")]
+script = ExtResource("22_baxp0")
+checkpoint = NodePath("../CheckpointManager/Checkpoint2")
+
+[node name="EnemyPickupCar" parent="CheckpointGuard2" instance=ExtResource("25_lmnbq")]
+position = Vector2(-588, -603)
+rotation = 0.366534
 
 [node name="CardboardBox" parent="." instance=ExtResource("4_og7vw")]
 position = Vector2(824, -272)
@@ -1680,15 +1701,11 @@ zoom = Vector2(0.75, 0.75)
 process_callback = 0
 position_smoothing_enabled = true
 
-[node name="EnemyPickupCar" parent="." instance=ExtResource("25_lmnbq")]
-position = Vector2(306, -592)
-
 [node name="BorderBody" type="StaticBody2D" parent="."]
 collision_mask = 0
 
 [node name="BorderShape" type="Node2D" parent="BorderBody"]
 script = ExtResource("3_8smkf")
-editor_debug = true
 _points = SubResource("Resource_i87ai")
 shape_material = SubResource("Resource_t1qf1")
 collision_polygon_node_path = NodePath("../CollisionPolygon2D")
