@@ -19,7 +19,7 @@ func on_checkpoint_confirmed(trailer: Trailer, checkpoint: Checkpoint) -> void:
 
 	checkpoint.stop()
 
-func begin_checkpoint(checkpoint: Checkpoint, trailer: Trailer) -> void:
+func begin_checkpoint(checkpoint: Checkpoint, _trailer: Trailer) -> void:
 	if checkpoint != null:
 		checkpoint.confirmed.connect(on_checkpoint_confirmed.bind(checkpoint))
 		checkpoint.begin()

@@ -31,7 +31,7 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	
 	if is_on_wall():
-		die()	
+		die()
 	
 func _on_hit_box_hit() -> void:
 	die()
@@ -39,4 +39,5 @@ func _on_hit_box_hit() -> void:
 func die() -> void:
 	set_physics_process(false)
 	anim_player.play("explode")
-	anim_player.animation_finished.connect(queue_free)
+	anim_player.animation_finished.connect(queue_free.bind(self))
+	
