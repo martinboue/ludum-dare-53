@@ -17289,7 +17289,7 @@ trigger_area = NodePath("../TriggerArea")
 
 [node name="CheckpointManager" type="Node2D" parent="." node_paths=PackedStringArray("initial_checkpoint")]
 script = ExtResource("1_ru67p")
-initial_checkpoint = NodePath("Checkpoint1")
+initial_checkpoint = NodePath("Checkpoint5")
 
 [node name="Checkpoint1" parent="CheckpointManager" node_paths=PackedStringArray("next_checkpoint") instance=ExtResource("5_e3kwj")]
 position = Vector2(-139, -9047)
@@ -17297,7 +17297,6 @@ rotation = 1.42984
 scale = Vector2(5.84957, -5.74229)
 hint = "Take this shit to the next station... hurry up!"
 next_checkpoint = NodePath("../Checkpoint2")
-trailer_has_rambo = true
 
 [node name="Checkpoint2" parent="CheckpointManager" node_paths=PackedStringArray("next_checkpoint") instance=ExtResource("5_e3kwj")]
 position = Vector2(9377, -11866)
@@ -17318,14 +17317,14 @@ trailer_has_rambo = true
 position = Vector2(11292, -107)
 rotation = 0.484073
 scale = Vector2(7.92687, 5.33506)
-hint = "The warm up is over, you still suck but go to the next station"
+hint = "The warm up is over, you suck but we need you at the next station"
 next_checkpoint = NodePath("../Checkpoint5")
 
 [node name="Checkpoint5" parent="CheckpointManager" node_paths=PackedStringArray("next_checkpoint") instance=ExtResource("5_e3kwj")]
 position = Vector2(18963, -2528)
 rotation = 0.484073
 scale = Vector2(7.92687, 5.33506)
-hint = "Oh, they have sent you... well ..."
+hint = "Oh, it's you... We'll go with that..."
 next_checkpoint = NodePath("../CheckpointFinal")
 trailer_has_rambo = true
 
@@ -17479,7 +17478,7 @@ theme_override_font_sizes/font_size = 128
 text = "Take care"
 
 [node name="PlayerCar" parent="." instance=ExtResource("27_s0jr7")]
-position = Vector2(1054, -403)
+position = Vector2(18427, -1825)
 rotation = -0.290378
 metadata/_edit_group_ = true
 
