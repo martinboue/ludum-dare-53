@@ -7,7 +7,7 @@ var bullet_scene := preload("res://src/actors/bullet/bullet.tscn")
 @onready var fire_cooldown := $FireCooldown
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	var mouse_position := get_global_mouse_position()
 	look_at(mouse_position)
 	$CrossSign.global_position = mouse_position 
