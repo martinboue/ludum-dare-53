@@ -26,6 +26,7 @@ position = Vector2(3, 0)
 texture = ExtResource("1_cqpih")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.46414, 1.46414)
 shape = SubResource("CircleShape2D_wtgqe")
 
 [node name="FireCooldown" type="Timer" parent="."]
@@ -37,6 +38,7 @@ collision_mask = 2
 script = ExtResource("3_gno4b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+scale = Vector2(1.46414, 1.46414)
 shape = SubResource("CircleShape2D_wtgqe")
 
 [connection signal="died" from="Health" to="." method="_on_health_died"]

@@ -25,6 +25,7 @@ func set_bullet_friendly() -> void:
 	# collide with enemy instead of player
 	hitbox.set_collision_layer_value(2, true)
 	hitbox.set_collision_layer_value(3, false)
+	hitbox.damage = 40
 
 func _physics_process(_delta: float) -> void:
 	move_and_slide()

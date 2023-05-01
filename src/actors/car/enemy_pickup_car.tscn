@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bu47qcdj0hsxb"]
+[gd_scene load_steps=14 format=3 uid="uid://bu47qcdj0hsxb"]
 
 [ext_resource type="Script" path="res://src/actors/car/car.gd" id="1_hepph"]
 [ext_resource type="PackedScene" uid="uid://dfntrurleh6e" path="res://src/actors/car/drift/drifter.tscn" id="2_d1yfr"]
@@ -22,9 +22,6 @@ gradient = SubResource("Gradient_kmfep")
 radius = 24.0
 height = 94.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_mamai"]
-radius = 53.3301
-
 [node name="EnemyPickupCar" type="RigidBody2D" node_paths=PackedStringArray("health") groups=["enemy"]]
 mass = 10.0
 inertia = 200.0
@@ -35,6 +32,7 @@ health = NodePath("Health")
 
 [node name="TeslaAutoPilot" type="Node" parent="."]
 script = ExtResource("6_xuk6t")
+speed = 1.2
 
 [node name="AggroTrigger" type="Node" parent="TeslaAutoPilot" node_paths=PackedStringArray("trigger_area")]
 script = ExtResource("9_6o3f0")
@@ -92,6 +90,7 @@ script = ExtResource("3_ktb65")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 rotation = 1.5708
+scale = Vector2(1.50079, 1.3136)
 shape = SubResource("CapsuleShape2D_t4xjt")
 
 [node name="Marker2D" type="Marker2D" parent="."]
@@ -112,8 +111,7 @@ collision_layer = 0
 collision_mask = 8
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
-scale = Vector2(38.9117, 42.1601)
-shape = SubResource("CircleShape2D_mamai")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TriggerArea"]
+polygon = PackedVector2Array(-74, 39, -73, -56, 2139, -886, 2139, 853)
 
 [connection signal="died" from="Health" to="TeslaAutoPilot" method="_on_health_died"]
