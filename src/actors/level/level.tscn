@@ -1,4 +1,4 @@
-[gd_scene load_steps=2150 format=3 uid="uid://d2bfyslku0bju"]
+[gd_scene load_steps=2151 format=3 uid="uid://d2bfyslku0bju"]
 
 [ext_resource type="Script" path="res://src/actors/level/level.gd" id="1_homev"]
 [ext_resource type="Script" path="res://src/actors/checkpoint/checkpoint_manager.gd" id="1_ru67p"]
@@ -37,6 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://dc8w6iockoqdv" path="res://src/actors/level/assets/tutorial/arrow.png" id="31_kehbs"]
 [ext_resource type="Texture2D" uid="uid://bmh7krrf3bnld" path="res://src/actors/level/assets/tutorial/curved_arrow.png" id="31_m8eld"]
 [ext_resource type="Texture2D" uid="uid://i7nkcg1f8v5m" path="res://src/actors/level/assets/tutorial/curved_arrow_reverse.png" id="33_gb4sy"]
+[ext_resource type="Script" path="res://src/actors/level/camera.gd" id="34_i0yhh"]
 
 [sub_resource type="Gradient" id="Gradient_snfut"]
 offsets = PackedFloat32Array(0.235294, 0.851541, 1)
@@ -17489,6 +17490,7 @@ rotation = -0.961676
 zoom = Vector2(0.75, 0.75)
 process_callback = 0
 position_smoothing_enabled = true
+script = ExtResource("34_i0yhh")
 
 [node name="CarController" type="Node" parent="PlayerCar"]
 script = ExtResource("29_gq1li")
@@ -17522,4 +17524,5 @@ position = Vector2(4372, -3700)
 
 [connection signal="checkpoint_confirmed" from="CheckpointManager" to="PlayerCar" method="_on_checkpoint_manager_checkpoint_confirmed"]
 [connection signal="died" from="PlayerCar" to="." method="_on_player_car_died"]
+[connection signal="died" from="PlayerCar" to="PlayerCar/Camera2D" method="_on_player_car_died"]
 [connection signal="died" from="PlayerCar" to="PlayerCar/CarController" method="_on_player_car_died"]
