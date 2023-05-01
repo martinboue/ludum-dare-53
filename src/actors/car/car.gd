@@ -32,7 +32,6 @@ var turn := 0.0
 var steer_velocity := 0.08
 var prev_linear_velocity := Vector2.ZERO
 
-
 func _ready() -> void:
 	if health != null:
 		contact_monitor = true
