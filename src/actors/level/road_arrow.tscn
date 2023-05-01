@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv06r7gw28u4l"]
+
+[ext_resource type="Texture2D" uid="uid://dqphqx6mxv6yp" path="res://src/actors/level/assets/road/arrow.png" id="1_pg22e"]
+
+[node name="RoadArrow" type="Sprite2D"]
+texture = ExtResource("1_pg22e")
