@@ -1,25 +1,31 @@
 class_name DriftMark
 extends Line2D
 
-@export var mark_color := Color(0, 0, 0, 0.2)
-@export var mark_width := 4
-
 const max = 100
+var drifting := true
+var wait_count = 0
 
 func _ready() -> void:
-	default_color = mark_color
-	width = mark_width
 	show_behind_parent = true
 
-func _process(_delta):
+func _physics_process(delta: float) -> void:
 	global_position = Vector2.ZERO
 	global_rotation = 0
 	
-	var point = get_parent().global_position
-	add_point(point)
-	
-	while get_point_count() > max:
-		remove_point(0)
+	if drifting:
+		var point = get_parent().global_position
+		add_point(point)
+		if get_point_count() > max:
+			remove_point(0)
+	else:
+		if get_point_count() == 0:
+			queue_free()
+		elif wait_count == 0:
+			remove_point(0)
+		else: 
+			wait_count -= 1
 
-
+func stop() -> void:
+	drifting = false
+	wait_count = max - get_point_count()
 	

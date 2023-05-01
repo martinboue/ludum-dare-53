@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://src/actors/car/enemy_pickup_car.gd" id="1_xx02y"]
 [ext_resource type="Script" path="res://src/nodes/health/health.gd" id="2_xecs6"]
 [ext_resource type="Script" path="res://src/nodes/hurtbox/hurtbox.gd" id="3_ktb65"]
+[ext_resource type="Script" path="res://src/actors/car/drift/drifter.gd" id="5_grlpd"]
 [ext_resource type="Texture2D" uid="uid://d0sggy7w8ixjh" path="res://src/actors/enemies/driver/driver.png" id="5_kp3xl"]
-[ext_resource type="Script" path="res://src/actors/car/drift/drift_mark.gd" id="6_vtp8k"]
 [ext_resource type="Script" path="res://src/nodes/controls/tesla_auto_pilot.gd" id="6_xuk6t"]
 [ext_resource type="PackedScene" uid="uid://d4ix0fdxj8r2i" path="res://src/actors/enemies/gunner/gunner.tscn" id="7_davx5"]
 [ext_resource type="Script" path="res://src/actors/enemies/aggro_trigger.gd" id="9_6o3f0"]
@@ -64,33 +64,21 @@ position = Vector2(23, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_t4xjt")
 
-[node name="BackLeft" type="Marker2D" parent="."]
-show_behind_parent = true
+[node name="Drifter" type="Marker2D" parent="."]
 position = Vector2(-24, -18)
+script = ExtResource("5_grlpd")
 
-[node name="DriftMark" type="Line2D" parent="BackLeft"]
-script = ExtResource("6_vtp8k")
-
-[node name="FrontLeft" type="Marker2D" parent="."]
-show_behind_parent = true
+[node name="Drifter2" type="Marker2D" parent="."]
 position = Vector2(31, -18)
+script = ExtResource("5_grlpd")
 
-[node name="DriftMark" type="Line2D" parent="FrontLeft"]
-script = ExtResource("6_vtp8k")
-
-[node name="FrontRight" type="Marker2D" parent="."]
-show_behind_parent = true
+[node name="Drifter3" type="Marker2D" parent="."]
 position = Vector2(31, 19)
+script = ExtResource("5_grlpd")
 
-[node name="DriftMark" type="Line2D" parent="FrontRight"]
-script = ExtResource("6_vtp8k")
-
-[node name="BackRight" type="Marker2D" parent="."]
-show_behind_parent = true
+[node name="Drifter4" type="Marker2D" parent="."]
 position = Vector2(-24, 17)
-
-[node name="DriftMark" type="Line2D" parent="BackRight"]
-script = ExtResource("6_vtp8k")
+script = ExtResource("5_grlpd")
 
 [node name="HurtBox" type="Area2D" parent="."]
 collision_layer = 0

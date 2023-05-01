@@ -8,7 +8,6 @@ extends RigidBody2D
 # DriveWheel = roue motrice
 @onready var drive_wheel := $DriveWheel
 
-@onready var drifter = $Drifter
 @onready var right_wheel = $RightWheel
 @onready var left_wheel = $LeftWheel
 
