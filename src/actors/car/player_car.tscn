@@ -14,7 +14,8 @@
 [sub_resource type="QuadMesh" id="QuadMesh_y5nal"]
 
 [sub_resource type="Gradient" id="Gradient_xxfim"]
-colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.996894)
+colors = PackedColorArray(0.137255, 0.145098, 0.14902, 1, 0.137255, 0.145098, 0.14902, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_4m37v"]
 gradient = SubResource("Gradient_xxfim")

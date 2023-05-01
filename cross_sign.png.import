@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://kj3c14m7vhwj"
-path="res://.godot/imported/cross_sign.png-9b74173853b5cb6eaaa9abcfd47d7ca5.ctex"
+path="res://.godot/imported/cross_sign.png-bed3eec04734578d2f8409d5f464a28f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/actors/trailer/cross_sign.png"
-dest_files=["res://.godot/imported/cross_sign.png-9b74173853b5cb6eaaa9abcfd47d7ca5.ctex"]
+source_file="res://cross_sign.png"
+dest_files=["res://.godot/imported/cross_sign.png-bed3eec04734578d2f8409d5f464a28f.ctex"]
 
 [params]
 

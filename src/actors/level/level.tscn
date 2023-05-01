@@ -17479,7 +17479,7 @@ theme_override_font_sizes/font_size = 128
 text = "Take care"
 
 [node name="PlayerCar" parent="." instance=ExtResource("27_s0jr7")]
-position = Vector2(-1086, -8627)
+position = Vector2(1056, -402)
 rotation = -0.290378
 metadata/_edit_group_ = true
 
