@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://bu47qcdj0hsxb"]
 
-[ext_resource type="Script" path="res://src/actors/car/car.gd" id="1_hepph"]
+[ext_resource type="Script" path="res://src/actors/car/enemy_pickup_car.gd" id="1_xx02y"]
 [ext_resource type="Script" path="res://src/nodes/health/health.gd" id="2_xecs6"]
 [ext_resource type="Script" path="res://src/nodes/hurtbox/hurtbox.gd" id="3_ktb65"]
 [ext_resource type="Texture2D" uid="uid://d0sggy7w8ixjh" path="res://src/actors/enemies/driver/driver.png" id="5_kp3xl"]
@@ -27,16 +27,12 @@ mass = 10.0
 inertia = 200.0
 linear_damp = 1.0
 angular_damp = 5.0
-script = ExtResource("1_hepph")
+script = ExtResource("1_xx02y")
 health = NodePath("Health")
 
 [node name="TeslaAutoPilot" type="Node" parent="."]
 script = ExtResource("6_xuk6t")
 speed = 1.2
-
-[node name="AggroTrigger" type="Node" parent="TeslaAutoPilot" node_paths=PackedStringArray("trigger_area")]
-script = ExtResource("9_6o3f0")
-trigger_area = NodePath("../../TriggerArea")
 
 [node name="Health" type="Node" parent="." node_paths=PackedStringArray("hurt_box")]
 script = ExtResource("2_xecs6")
@@ -126,5 +122,9 @@ monitorable = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TriggerArea"]
 polygon = PackedVector2Array(-74, 39, -73, -56, 2139, -886, 2139, 853)
+
+[node name="AggroTrigger" type="Node" parent="." node_paths=PackedStringArray("trigger_area")]
+script = ExtResource("9_6o3f0")
+trigger_area = NodePath("../TriggerArea")
 
 [connection signal="died" from="Health" to="TeslaAutoPilot" method="_on_health_died"]
