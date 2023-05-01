@@ -8,7 +8,7 @@ var target_position: Vector2
 var source: Node2D
 var is_friendly := false
 
-const speed := 1200
+const speed := 1500
 
 func _ready() -> void:
 	# Initial position
