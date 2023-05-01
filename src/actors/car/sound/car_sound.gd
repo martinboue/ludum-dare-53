@@ -21,7 +21,7 @@ func _ready() -> void:
 			child.playing = enabled
 			child.volume_db = linear_to_db(0.0)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var speed := body.linear_velocity.length() / max_speed + min_pitch
 	audio.pitch_scale = speed + min_pitch
 	audio.volume_db = linear_to_db(1.0)

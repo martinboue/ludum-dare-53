@@ -1,7 +1,7 @@
 class_name DriftMark
 extends Line2D
 
-const max = 100
+const length = 100
 var drifting := true
 var wait_count = 0
 
@@ -15,7 +15,7 @@ func _physics_process(_delta: float) -> void:
 	if drifting:
 		var point = get_parent().global_position
 		add_point(point)
-		if get_point_count() > max:
+		if get_point_count() > length:
 			remove_point(0)
 	else:
 		if get_point_count() == 0:
@@ -27,5 +27,5 @@ func _physics_process(_delta: float) -> void:
 
 func stop() -> void:
 	drifting = false
-	wait_count = max - get_point_count()
+	wait_count = length - get_point_count()
 	

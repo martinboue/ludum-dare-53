@@ -14,7 +14,7 @@ func _ready() -> void:
 	body = owner
 	show_behind_parent = true
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	# Compute angle difference between where the car is going and where it is facing 
 	var angle_diff = abs(rad_to_deg(body.transform.x.angle_to(body.linear_velocity)))
 	# Stop drift when too slow or not turning
