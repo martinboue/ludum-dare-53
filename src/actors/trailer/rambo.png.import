@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bis8yy5l7bdso"
-path="res://.godot/imported/bullet.png-1609d01731a2bda0d7df53f49e73d833.ctex"
+uid="uid://cl6xl7qfe6vmv"
+path="res://.godot/imported/rambo.png-6199ae573e1ea0b2b6d7a1dd5a6708d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/actors/enemies/gunner/bullet/bullet.png"
-dest_files=["res://.godot/imported/bullet.png-1609d01731a2bda0d7df53f49e73d833.ctex"]
+source_file="res://src/actors/trailer/rambo.png"
+dest_files=["res://.godot/imported/rambo.png-6199ae573e1ea0b2b6d7a1dd5a6708d9.ctex"]
 
 [params]
 

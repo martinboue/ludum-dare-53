@@ -1,10 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://bu47qcdj0hsxb"]
+[gd_scene load_steps=15 format=3 uid="uid://bu47qcdj0hsxb"]
 
 [ext_resource type="Script" path="res://src/actors/car/car.gd" id="1_hepph"]
 [ext_resource type="PackedScene" uid="uid://dfntrurleh6e" path="res://src/actors/car/drift/drifter.tscn" id="2_d1yfr"]
 [ext_resource type="Script" path="res://src/nodes/health/health.gd" id="2_xecs6"]
 [ext_resource type="Script" path="res://src/nodes/hurtbox/hurtbox.gd" id="3_ktb65"]
-[ext_resource type="Script" path="res://src/nodes/hitbox/hitbox.gd" id="4_m66vx"]
 [ext_resource type="Texture2D" uid="uid://d0sggy7w8ixjh" path="res://src/actors/enemies/driver/driver.png" id="5_kp3xl"]
 [ext_resource type="Script" path="res://src/nodes/controls/tesla_auto_pilot.gd" id="6_xuk6t"]
 [ext_resource type="PackedScene" uid="uid://d4ix0fdxj8r2i" path="res://src/actors/enemies/gunner/gunner.tscn" id="7_davx5"]
@@ -88,19 +87,10 @@ position = Vector2(-25, 18)
 
 [node name="HurtBox" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 0
+collision_mask = 2
 script = ExtResource("3_ktb65")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_t4xjt")
-
-[node name="HitBox" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 0
-script = ExtResource("4_m66vx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_t4xjt")
 

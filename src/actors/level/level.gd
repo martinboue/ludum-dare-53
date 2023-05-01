@@ -5,6 +5,7 @@ signal new_objective(text: String)
 signal finished(victory: bool)
 
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	Score.start()
 
 func finish(victory: bool) -> void:

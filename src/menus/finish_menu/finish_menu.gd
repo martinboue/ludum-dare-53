@@ -20,6 +20,7 @@ func _ready() -> void:
 	modulate.a = 0
 
 func display() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	visible = true
 	var tween = create_tween()
 	tween.tween_property(self, "modulate:a", 1.0, 1.0).set_delay(2.0)

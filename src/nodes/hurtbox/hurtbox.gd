@@ -12,9 +12,5 @@ func _on_area_entered(area: Area2D) -> void:
 		return
 	var hitbox : HitBox = area
 	
-	# Update actor health before sending signals
-	if owner.has_method("take_damage"):
-		owner.take_damage(hitbox)
-	
 	on_hurt.emit(hitbox)
 	hitbox.hit.emit()

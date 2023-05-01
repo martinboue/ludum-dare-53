@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bu0qt5k4tmk3d"]
+[gd_scene load_steps=9 format=3 uid="uid://b0cqtax4c1uy0"]
 
-[ext_resource type="Script" path="res://src/actors/enemies/gunner/bullet/bullet.gd" id="1_ketv6"]
-[ext_resource type="Texture2D" uid="uid://bis8yy5l7bdso" path="res://src/actors/enemies/gunner/bullet/bullet.png" id="1_vbfj6"]
-[ext_resource type="Script" path="res://src/nodes/hitbox/hitbox.gd" id="3_3uh68"]
-[ext_resource type="Texture2D" uid="uid://baxtf48re6fy5" path="res://src/actors/enemies/gunner/bullet/explosion.png" id="3_qa3ub"]
+[ext_resource type="Script" path="res://src/actors/bullet/bullet.gd" id="1_0jl3e"]
+[ext_resource type="Texture2D" uid="uid://bis8yy5l7bdso" path="res://src/actors/bullet/bullet.png" id="2_wbrsn"]
+[ext_resource type="Texture2D" uid="uid://baxtf48re6fy5" path="res://src/actors/bullet/explosion.png" id="3_gxwba"]
+[ext_resource type="Script" path="res://src/nodes/hitbox/hitbox.gd" id="4_bwe5j"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1abn1"]
 radius = 5.0
@@ -88,17 +88,17 @@ _data = {
 [node name="Bullet" type="CharacterBody2D"]
 top_level = true
 collision_layer = 0
-collision_mask = 2
+collision_mask = 0
 motion_mode = 1
-script = ExtResource("1_ketv6")
+script = ExtResource("1_0jl3e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
-texture = ExtResource("1_vbfj6")
+texture = ExtResource("2_wbrsn")
 
 [node name="ExplosionSprite" type="Sprite2D" parent="."]
 visible = false
-texture = ExtResource("3_qa3ub")
+texture = ExtResource("3_gxwba")
 hframes = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -108,7 +108,7 @@ shape = SubResource("CapsuleShape2D_1abn1")
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 0
-script = ExtResource("3_3uh68")
+script = ExtResource("4_bwe5j")
 damage = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
