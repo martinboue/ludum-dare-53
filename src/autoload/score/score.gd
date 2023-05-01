@@ -6,6 +6,7 @@ const damage_received_weight := 1
 const timer_weight := 1
 
 # Score
+var victory := false
 var time := 0.0
 var unkilled_enemies := 0
 var damages_received := 0
@@ -16,9 +17,11 @@ func _ready() -> void:
 func start() -> void:
 	set_process(true)
 	time = 0.0
+	damages_received = 0
 
-func stop() -> void:
+func stop(won: bool) -> void:
 	set_process(false)
+	victory = won
 	# Compute the number of unkilled enemies
 	unkilled_enemies = get_tree().get_nodes_in_group("enemy").size()
 
@@ -32,6 +35,8 @@ func get_unkilled_enemies_score() -> int:
 	return - unkilled_enemies * unkilled_enemy_weight
 
 func get_damages_received_score() -> int:
+	if not victory:
+		return -999
 	return - damages_received * damage_received_weight
 
 func get_time_score() -> int:

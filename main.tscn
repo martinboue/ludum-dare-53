@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cqy66shbill17"]
 
-[ext_resource type="PackedScene" uid="uid://bmjc5qdu0mx40" path="res://src/hud/hud.tscn" id="1_6810q"]
+[ext_resource type="PackedScene" path="res://src/hud/hud.tscn" id="1_6810q"]
 [ext_resource type="PackedScene" uid="uid://d2bfyslku0bju" path="res://src/actors/level/level.tscn" id="3_xwjqm"]
 
 [node name="Main" type="Node2D"]
@@ -9,5 +9,5 @@
 
 [node name="Level" parent="." instance=ExtResource("3_xwjqm")]
 
+[connection signal="finished" from="Level" to="HUD" method="_on_level_finished"]
 [connection signal="new_objective" from="Level" to="HUD" method="_on_level_new_objective"]
-[connection signal="won" from="Level" to="HUD" method="_on_level_won"]

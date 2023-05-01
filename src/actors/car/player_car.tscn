@@ -100,3 +100,4 @@ position = Vector2(32, 0)
 health = NodePath("../Health")
 
 [connection signal="damaged" from="Health" to="." method="_on_health_damaged"]
+[connection signal="died" from="Health" to="." method="_on_health_died"]
