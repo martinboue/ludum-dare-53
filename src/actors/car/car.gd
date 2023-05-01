@@ -43,7 +43,6 @@ func _physics_process(_delta):
 	# Acceleration
 	apply_impulse(transform.x * engine_power * acceleration, 
 		drive_wheel.position.rotated(rotation))
-	drifter.drift()
 
 	# Steering
 	var steer_direction = clampf(turn, -max_steering_angle, max_steering_angle)

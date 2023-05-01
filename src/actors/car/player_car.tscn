@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://bpywquu6je2oh"]
 
 [ext_resource type="Script" path="res://src/actors/car/player_car.gd" id="1_wo8g8"]
-[ext_resource type="PackedScene" uid="uid://dfntrurleh6e" path="res://src/actors/car/drift/drifter.tscn" id="2_t7hbo"]
 [ext_resource type="Script" path="res://src/nodes/health/health.gd" id="2_vn0ab"]
 [ext_resource type="Script" path="res://src/nodes/hurtbox/hurtbox.gd" id="3_1ygx1"]
 [ext_resource type="Script" path="res://src/nodes/hitbox/hitbox.gd" id="4_io016"]
+[ext_resource type="Script" path="res://src/actors/car/drift/drift_mark.gd" id="4_p7bos"]
 [ext_resource type="Texture2D" uid="uid://5s16qsmsypi6" path="res://src/actors/car/car.png" id="5_xmik8"]
 [ext_resource type="PackedScene" uid="uid://yt7lsn48fu80" path="res://src/actors/car/smoke/smoke_emitter.tscn" id="8_rcsa8"]
 
@@ -60,20 +60,33 @@ position = Vector2(23, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_bsupm")
 
-[node name="Drifter" parent="." instance=ExtResource("2_t7hbo")]
-position = Vector2(1, -1)
+[node name="BackLeft" type="Marker2D" parent="."]
+show_behind_parent = true
+position = Vector2(-24, -18)
 
-[node name="BackLeft" type="Marker2D" parent="Drifter"]
-position = Vector2(-25, -17)
+[node name="DriftMark" type="Line2D" parent="BackLeft"]
+script = ExtResource("4_p7bos")
 
-[node name="FrontLeft" type="Marker2D" parent="Drifter"]
-position = Vector2(22, -17)
+[node name="FrontLeft" type="Marker2D" parent="."]
+show_behind_parent = true
+position = Vector2(23, -18)
 
-[node name="FrontRight" type="Marker2D" parent="Drifter"]
-position = Vector2(22, 20)
+[node name="DriftMark" type="Line2D" parent="FrontLeft"]
+script = ExtResource("4_p7bos")
 
-[node name="BackRight" type="Marker2D" parent="Drifter"]
-position = Vector2(-25, 18)
+[node name="FrontRight" type="Marker2D" parent="."]
+show_behind_parent = true
+position = Vector2(23, 19)
+
+[node name="DriftMark" type="Line2D" parent="FrontRight"]
+script = ExtResource("4_p7bos")
+
+[node name="BackRight" type="Marker2D" parent="."]
+show_behind_parent = true
+position = Vector2(-24, 17)
+
+[node name="DriftMark" type="Line2D" parent="BackRight"]
+script = ExtResource("4_p7bos")
 
 [node name="HurtBox" type="Area2D" parent="."]
 collision_layer = 0
@@ -99,6 +112,9 @@ shape = SubResource("CapsuleShape2D_bsupm")
 z_index = 1
 position = Vector2(32, 0)
 health = NodePath("../Health")
+
+[node name="DriftMark" type="Line2D" parent="."]
+script = ExtResource("4_p7bos")
 
 [connection signal="damaged" from="Health" to="." method="_on_health_damaged"]
 [connection signal="died" from="Health" to="." method="_on_health_died"]

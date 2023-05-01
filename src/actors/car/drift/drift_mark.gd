@@ -1,20 +1,25 @@
-extends Marker2D
+class_name DriftMark
+extends Line2D
 
-const Max = 100
+@export var mark_color := Color(0, 0, 0, 0.2)
+@export var mark_width := 4
 
-@onready var line = $Line
+const max = 100
+
+func _ready() -> void:
+	default_color = mark_color
+	width = mark_width
+	show_behind_parent = true
 
 func _process(_delta):
-	var point_count = line.get_point_count()
-	if point_count > Max:
-		line.remove_point(0)
-
-func mark():
-	line.add_point(global_position)	
+	global_position = Vector2.ZERO
+	global_rotation = 0
 	
-func end_mark():
-	var tween := create_tween()
-	tween.tween_property(line, "modulate:a", 0, 1).set_delay(5)
-	tween.tween_callback(queue_free)
+	var point = get_parent().global_position
+	add_point(point)
+	
+	while get_point_count() > max:
+		remove_point(0)
+
 
 	

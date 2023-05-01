@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bypc7bif3liy5" path="res://src/actors/trailer/trailer.png" id="2_qn46r"]
 [ext_resource type="Script" path="res://src/nodes/hitbox/hitbox.gd" id="3_0fla0"]
 [ext_resource type="Script" path="res://src/nodes/hurtbox/hurtbox.gd" id="3_g817u"]
-[ext_resource type="PackedScene" uid="uid://dfntrurleh6e" path="res://src/actors/car/drift/drifter.tscn" id="3_lqq1h"]
+[ext_resource type="Script" path="res://src/actors/car/drift/drift_mark.gd" id="5_2dxsd"]
 [ext_resource type="Texture2D" uid="uid://cl6xl7qfe6vmv" path="res://src/actors/trailer/rambo.png" id="6_xh3rp"]
 [ext_resource type="Script" path="res://src/actors/trailer/rambo.gd" id="7_qb8bf"]
 [ext_resource type="Texture2D" uid="uid://kj3c14m7vhwj" path="res://src/actors/trailer/cross_sign.png" id="8_1myxt"]
@@ -49,13 +49,19 @@ script = ExtResource("3_g817u")
 position = Vector2(0.000100348, 18.5)
 shape = SubResource("RectangleShape2D_hg81q")
 
-[node name="Drifter" parent="." instance=ExtResource("3_lqq1h")]
-
-[node name="LeftWheel" type="Marker2D" parent="Drifter"]
+[node name="LeftWheel" type="Marker2D" parent="."]
+show_behind_parent = true
 position = Vector2(-22.9999, 22.0001)
 
-[node name="RightWheel" type="Marker2D" parent="Drifter"]
+[node name="DriftMark" type="Line2D" parent="LeftWheel"]
+script = ExtResource("5_2dxsd")
+
+[node name="RightWheel" type="Marker2D" parent="."]
+show_behind_parent = true
 position = Vector2(23.0001, 21.9999)
+
+[node name="DriftMark" type="Line2D" parent="RightWheel"]
+script = ExtResource("5_2dxsd")
 
 [node name="Rambo" type="Sprite2D" parent="."]
 position = Vector2(6.51598e-05, 18)
