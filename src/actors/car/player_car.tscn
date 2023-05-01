@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bpywquu6je2oh"]
+[gd_scene load_steps=15 format=3 uid="uid://bag46vomfgd0u"]
 
 [ext_resource type="Script" path="res://src/actors/car/player_car.gd" id="1_wo8g8"]
 [ext_resource type="Script" path="res://src/nodes/health/health.gd" id="2_vn0ab"]
@@ -6,7 +6,10 @@
 [ext_resource type="Script" path="res://src/nodes/hitbox/hitbox.gd" id="4_io016"]
 [ext_resource type="Script" path="res://src/actors/car/drift/drifter.gd" id="4_o6fn7"]
 [ext_resource type="Texture2D" uid="uid://5s16qsmsypi6" path="res://src/actors/car/car.png" id="5_xmik8"]
+[ext_resource type="Script" path="res://src/actors/car/sound/car_sound.gd" id="8_h4t1s"]
 [ext_resource type="PackedScene" uid="uid://yt7lsn48fu80" path="res://src/actors/car/smoke/smoke_emitter.tscn" id="8_rcsa8"]
+[ext_resource type="AudioStream" uid="uid://dpccq21qfhth0" path="res://src/actors/car/sound/5.ogg" id="8_v2f8u"]
+[ext_resource type="AudioStream" uid="uid://ds6xexwy31fo2" path="res://src/actors/car/sound/drift.wav" id="10_li6f2"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_y5nal"]
 
@@ -100,6 +103,18 @@ shape = SubResource("CapsuleShape2D_bsupm")
 z_index = 1
 position = Vector2(32, 0)
 health = NodePath("../Health")
+
+[node name="CarSound" type="Node2D" parent="." node_paths=PackedStringArray("wheel")]
+script = ExtResource("8_h4t1s")
+wheel = NodePath("../RightWheel")
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="CarSound"]
+stream = ExtResource("8_v2f8u")
+autoplay = true
+
+[node name="DriftAudio" type="AudioStreamPlayer2D" parent="CarSound"]
+stream = ExtResource("10_li6f2")
+autoplay = true
 
 [connection signal="damaged" from="Health" to="." method="_on_health_damaged"]
 [connection signal="died" from="Health" to="." method="_on_health_died"]

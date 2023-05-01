@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://src/menus/main_menu/main_menu.gd" id="1_1k74b"]
 [ext_resource type="FontFile" uid="uid://7g6gk26flajs" path="res://src/menus/font.ttf" id="1_usa4q"]
 [ext_resource type="FontFile" uid="uid://dcb7ie0lp7lhq" path="res://src/menus/font-title.otf" id="2_abpqf"]
-[ext_resource type="PackedScene" uid="uid://bpywquu6je2oh" path="res://src/actors/car/player_car.tscn" id="4_abnmi"]
+[ext_resource type="PackedScene" uid="uid://bag46vomfgd0u" path="res://src/actors/car/player_car.tscn" id="4_abnmi"]
 [ext_resource type="PackedScene" uid="uid://wr5v2amc3ljx" path="res://src/actors/trailer/trailer.tscn" id="6_67yvf"]
 [ext_resource type="Script" path="res://src/menus/main_menu/drift_controller.gd" id="6_l64mj"]
 
@@ -73,6 +73,9 @@ text = "RUN AWAY"
 [node name="PlayerCar" parent="." instance=ExtResource("4_abnmi")]
 position = Vector2(-125, 655)
 
+[node name="CarSound" parent="PlayerCar" index="15"]
+enabled = false
+
 [node name="DriftController" type="Node" parent="PlayerCar" node_paths=PackedStringArray("target")]
 script = ExtResource("6_l64mj")
 target = NodePath("../../Marker2D")
@@ -85,3 +88,5 @@ position = Vector2(985, 377)
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+
+[editable path="PlayerCar"]
