@@ -4,6 +4,7 @@ extends Area2D
 signal confirmed(trailer: Trailer)
 
 @export var next_checkpoint: Checkpoint
+@export var trailer_has_rambo := false
 @onready var polygon = $Polygon2D
 
 var trailer_scene := preload("res://src/actors/trailer/trailer.tscn")
@@ -43,8 +44,9 @@ func _on_body_entered(body: Node2D) -> void:
 	confirmed.emit(trailer)
 
 func load_trailer(car: Car) -> Trailer:
-	var trailer := trailer_scene.instantiate()
+	var trailer: Trailer = trailer_scene.instantiate()
 	trailer.position = Vector2(-59, 0)
+	trailer.has_rambo = trailer_has_rambo
 	car.trailer = trailer
 	car.call_deferred("add_child", trailer)
 	return trailer

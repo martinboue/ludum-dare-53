@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var bullet_spawner := $BulletSpawner
 
 var target: Node2D
-var bullet_scene := preload("res://src/actors/enemies/gunner/bullet/bullet.tscn")
+var bullet_scene := preload("res://src/actors/bullet/bullet.tscn")
 var blood_scene := preload("res://src/actors/enemies/blood/blood.tscn")
 
 var shooting_distance = 500.0
@@ -33,7 +33,7 @@ func can_shoot() -> bool:
 func fire() -> void:
 	var bullet: Bullet = bullet_scene.instantiate()
 	bullet.source = bullet_spawner
-	bullet.target = target
+	bullet.target_position = target.global_position
 	add_child(bullet)
 	
 func activate():
