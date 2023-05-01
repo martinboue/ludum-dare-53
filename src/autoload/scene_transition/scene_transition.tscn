@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8edfahq7r18j"]
+[gd_scene load_steps=6 format=3 uid="uid://b8edfahq7r18j"]
 
 [ext_resource type="Script" path="res://src/autoload/scene_transition/scene_transition.gd" id="1_nk4ps"]
+[ext_resource type="FontFile" uid="uid://7g6gk26flajs" path="res://src/menus/font.ttf" id="2_6ypna"]
 
 [sub_resource type="Animation" id="Animation_qunsc"]
 length = 0.001
@@ -53,6 +54,25 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0.584314, 0.431373, 0.270588, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_6ypna")
+theme_override_font_sizes/font_size = 60
+text = "Loading the trailer..."
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
