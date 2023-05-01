@@ -15,6 +15,7 @@ var is_triggered := true
 signal activated
 
 func _ready() -> void:
+	set_physics_process(false)
 	target = get_tree().get_nodes_in_group("player")[0]
 
 func _physics_process(_delta: float) -> void:
@@ -38,6 +39,7 @@ func fire() -> void:
 	
 func activate():
 	is_active = true
+	set_physics_process(true)
 	activated.emit()
 
 func _on_health_died() -> void:

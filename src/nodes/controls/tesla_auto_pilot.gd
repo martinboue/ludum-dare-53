@@ -11,6 +11,7 @@ var is_triggered := true
 signal activated
 
 func _ready():
+	get_parent().set_physics_process(false)
 	target = get_tree().get_nodes_in_group("player")[0]
 	car_to_pilot = get_parent()
 
@@ -21,6 +22,7 @@ func _physics_process(_delta) -> void:
 	car_to_pilot.turn = car_to_pilot.get_angle_to(target.global_position)
 
 func activate():
+	get_parent().set_physics_process(true)
 	is_active = true
 	activated.emit()
 
