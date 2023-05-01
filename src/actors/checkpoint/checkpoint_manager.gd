@@ -12,9 +12,11 @@ func on_checkpoint_confirmed(trailer: Trailer, checkpoint: Checkpoint) -> void:
 	var next_checkpoint = checkpoint.next_checkpoint
 	
 	checkpoint_confirmed.emit(trailer, checkpoint)
+
+	owner.new_objective.emit(checkpoint.hint)
 	
 	begin_checkpoint(next_checkpoint, trailer)
-	
+
 	checkpoint.stop()
 
 func begin_checkpoint(checkpoint: Checkpoint, trailer: Trailer) -> void:
@@ -24,8 +26,4 @@ func begin_checkpoint(checkpoint: Checkpoint, trailer: Trailer) -> void:
 	
 	if checkpoint == null:
 		owner.end()
-	elif trailer == null:
-		owner.new_objective.emit("Move your ass and go get your cargo!")
-	else:
-		owner.new_objective.emit("Get out of here! You've got a delivery")
 	

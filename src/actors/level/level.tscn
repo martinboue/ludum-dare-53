@@ -15745,8 +15745,8 @@ script = ExtResource("23_gnf6a")
 trigger_area = NodePath("../TriggerArea")
 
 [node name="EnemyPickupCar" parent="CheckpointGuard" instance=ExtResource("25_lmnbq")]
-position = Vector2(585, -8021)
-rotation = -0.17504
+position = Vector2(3894, -9170)
+rotation = 0.326872
 
 [node name="Gunner2" parent="CheckpointGuard" instance=ExtResource("3_oixce")]
 position = Vector2(1650, -9792)
@@ -17309,18 +17309,21 @@ initial_checkpoint = NodePath("Checkpoint1")
 position = Vector2(-139, -9047)
 rotation = 1.42984
 scale = Vector2(5.84957, -5.74229)
+hint = "Take this shit to the next station... hurry up!"
 next_checkpoint = NodePath("../Checkpoint2")
 
 [node name="Checkpoint2" parent="CheckpointManager" node_paths=PackedStringArray("next_checkpoint") instance=ExtResource("5_e3kwj")]
 position = Vector2(9377, -11866)
 rotation = 2.61874
 scale = Vector2(7.92687, 5.33506)
+hint = "Not done! The next station has a job for you!"
 next_checkpoint = NodePath("../Checkpoint3")
 
 [node name="Checkpoint3" parent="CheckpointManager" node_paths=PackedStringArray("next_checkpoint") instance=ExtResource("5_e3kwj")]
 position = Vector2(9574, -8262)
 rotation = 0.145958
 scale = Vector2(7.92687, 5.33506)
+hint = "Take this machine gun, it may help you ..."
 next_checkpoint = NodePath("../Checkpoint4")
 trailer_has_rambo = true
 
@@ -17328,12 +17331,14 @@ trailer_has_rambo = true
 position = Vector2(11292, -107)
 rotation = 0.484073
 scale = Vector2(7.92687, 5.33506)
+hint = "The warm up is over, you still suck but go to the next station"
 next_checkpoint = NodePath("../Checkpoint5")
 
 [node name="Checkpoint5" parent="CheckpointManager" node_paths=PackedStringArray("next_checkpoint") instance=ExtResource("5_e3kwj")]
 position = Vector2(18963, -2528)
 rotation = 0.484073
 scale = Vector2(7.92687, 5.33506)
+hint = "Oh, they have sent you... well ..."
 next_checkpoint = NodePath("../CheckpointFinal")
 trailer_has_rambo = true
 
@@ -17341,6 +17346,7 @@ trailer_has_rambo = true
 position = Vector2(5859, -23721)
 rotation = 1.43772
 scale = Vector2(10.1527, 10.7248)
+hint = "What the hell did you do with the car??"
 
 [node name="InGameTutorial" type="Node2D" parent="."]
 
@@ -17474,11 +17480,11 @@ scale = Vector2(2.64, 2)
 texture = ExtResource("33_gb4sy")
 
 [node name="TakeCare" type="Label" parent="InGameTutorial"]
-offset_left = 577.0
-offset_top = -8891.0
-offset_right = 1091.0
-offset_bottom = -8668.0
-rotation = 0.657139
+offset_left = 4800.0
+offset_top = -8845.0
+offset_right = 5314.0
+offset_bottom = -8622.0
+rotation = 0.417173
 theme_override_colors/font_color = Color(0.619608, 0.596078, 0.54902, 1)
 theme_override_fonts/font = ExtResource("30_jhjnk")
 theme_override_font_sizes/font_size = 128
