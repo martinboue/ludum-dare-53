@@ -88,7 +88,7 @@ _data = {
 [node name="Bullet" type="CharacterBody2D"]
 top_level = true
 collision_layer = 0
-collision_mask = 0
+collision_mask = 16
 motion_mode = 1
 script = ExtResource("1_0jl3e")
 

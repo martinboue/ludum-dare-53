@@ -12,4 +12,9 @@ func _on_checkpoint_confirmed(_trailer: Trailer):
 	for c in get_children():
 		if c.has_method('activate') :
 			c.activate()
+			
+			# Required for enemy in car 
+			for d in c.get_children():
+				if d.has_method('activate') :
+					d.activate()
 	checkpoint.confirmed.disconnect(_on_checkpoint_confirmed)

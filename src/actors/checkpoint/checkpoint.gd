@@ -3,6 +3,7 @@ extends Area2D
 
 signal confirmed(trailer: Trailer)
 
+@export var hint := ""
 @export var next_checkpoint: Checkpoint
 @export var trailer_has_rambo := false
 @onready var polygon = $Polygon2D

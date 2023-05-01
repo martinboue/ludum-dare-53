@@ -8,7 +8,7 @@ var wait_count = 0
 func _ready() -> void:
 	show_behind_parent = true
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	global_position = Vector2.ZERO
 	global_rotation = 0
 	

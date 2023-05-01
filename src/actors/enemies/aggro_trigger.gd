@@ -6,7 +6,9 @@ var controlled_node : Node
 func _ready():
 	controlled_node = get_parent()
 	if trigger_area != null:
-		trigger_area.body_entered.connect(_on_trigger_area_entered)
+		# Fix signal already connected
+		if not trigger_area.body_entered.is_connected(_on_trigger_area_entered):
+			trigger_area.body_entered.connect(_on_trigger_area_entered)
 		controlled_node.is_triggered = false
 
 func _on_trigger_area_entered(_body: Node2D):
