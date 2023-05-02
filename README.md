@@ -1,4 +1,5 @@
 # Drifting Trailer
+Game submission for Ludum Dare 53 with the theme "Delivery"
 
 ## Development 
 
