@@ -2,7 +2,6 @@ extends Sprite2D
 
 var bullet_scene := preload("res://src/actors/bullet/bullet.tscn")
 
-@onready var cross_sign := $CrossSign
 @onready var bullet_spawner := $BulletSpawner
 @onready var fire_cooldown := $FireCooldown
 
