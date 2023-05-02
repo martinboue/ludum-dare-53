@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bag46vomfgd0u"]
+[gd_scene load_steps=16 format=3 uid="uid://da6dltfws6ra6"]
 
 [ext_resource type="Script" path="res://src/actors/car/player_car.gd" id="1_wo8g8"]
 [ext_resource type="Script" path="res://src/nodes/health/health.gd" id="2_vn0ab"]
@@ -8,8 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://5s16qsmsypi6" path="res://src/actors/car/car.png" id="5_xmik8"]
 [ext_resource type="Script" path="res://src/actors/car/sound/car_sound.gd" id="8_h4t1s"]
 [ext_resource type="PackedScene" uid="uid://yt7lsn48fu80" path="res://src/actors/car/smoke/smoke_emitter.tscn" id="8_rcsa8"]
-[ext_resource type="AudioStream" uid="uid://dpccq21qfhth0" path="res://src/actors/car/sound/5.ogg" id="8_v2f8u"]
+[ext_resource type="AudioStream" uid="uid://dpccq21qfhth0" path="res://src/actors/car/sound/engine.ogg" id="9_op68w"]
 [ext_resource type="AudioStream" uid="uid://ds6xexwy31fo2" path="res://src/actors/car/sound/drift.wav" id="10_li6f2"]
+[ext_resource type="AudioStream" uid="uid://koas2bu62cp4" path="res://src/actors/car/sound/explosion.wav" id="11_c26ux"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_y5nal"]
 
@@ -109,13 +110,18 @@ health = NodePath("../Health")
 script = ExtResource("8_h4t1s")
 wheel = NodePath("../RightWheel")
 
-[node name="Audio" type="AudioStreamPlayer2D" parent="CarSound"]
-stream = ExtResource("8_v2f8u")
+[node name="EngineAudio" type="AudioStreamPlayer2D" parent="CarSound"]
+stream = ExtResource("9_op68w")
 autoplay = true
 
 [node name="DriftAudio" type="AudioStreamPlayer2D" parent="CarSound"]
 stream = ExtResource("10_li6f2")
 autoplay = true
 
+[node name="ExplosionAudio" type="AudioStreamPlayer2D" parent="CarSound"]
+stream = ExtResource("11_c26ux")
+volume_db = 12.0
+
+[connection signal="died" from="." to="CarSound" method="_on_player_car_died"]
 [connection signal="damaged" from="Health" to="." method="_on_health_damaged"]
 [connection signal="died" from="Health" to="." method="_on_health_died"]

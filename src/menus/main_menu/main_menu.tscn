@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://src/menus/main_menu/main_menu.gd" id="1_1k74b"]
 [ext_resource type="FontFile" uid="uid://7g6gk26flajs" path="res://src/menus/font.ttf" id="1_usa4q"]
 [ext_resource type="FontFile" uid="uid://dcb7ie0lp7lhq" path="res://src/menus/font-title.otf" id="2_abpqf"]
-[ext_resource type="PackedScene" uid="uid://bag46vomfgd0u" path="res://src/actors/car/player_car.tscn" id="4_abnmi"]
+[ext_resource type="PackedScene" uid="uid://da6dltfws6ra6" path="res://src/actors/car/player_car.tscn" id="4_abnmi"]
 [ext_resource type="PackedScene" uid="uid://8e2kofd4l0fp" path="res://src/actors/trailer/trailer.tscn" id="6_67yvf"]
 [ext_resource type="Script" path="res://src/menus/main_menu/drift_controller.gd" id="6_l64mj"]
 

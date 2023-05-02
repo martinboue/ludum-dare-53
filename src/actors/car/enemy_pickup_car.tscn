@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bu47qcdj0hsxb"]
+[gd_scene load_steps=15 format=3 uid="uid://bu47qcdj0hsxb"]
 
 [ext_resource type="Script" path="res://src/actors/car/enemy_pickup_car.gd" id="1_xx02y"]
 [ext_resource type="Script" path="res://src/nodes/health/health.gd" id="2_xecs6"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d4ix0fdxj8r2i" path="res://src/actors/enemies/gunner/gunner.tscn" id="7_davx5"]
 [ext_resource type="Script" path="res://src/actors/enemies/aggro_trigger.gd" id="9_6o3f0"]
 [ext_resource type="PackedScene" uid="uid://yt7lsn48fu80" path="res://src/actors/car/smoke/smoke_emitter.tscn" id="9_82nkm"]
+[ext_resource type="AudioStream" uid="uid://koas2bu62cp4" path="res://src/actors/car/sound/explosion.wav" id="10_2luxd"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_vd8de"]
 
@@ -115,4 +116,8 @@ polygon = PackedVector2Array(-74, 39, -73, -56, 2139, -886, 2139, 853)
 script = ExtResource("9_6o3f0")
 trigger_area = NodePath("../TriggerArea")
 
+[node name="ExplosionAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_2luxd")
+
+[connection signal="died" from="Health" to="." method="_on_health_died"]
 [connection signal="died" from="Health" to="TeslaAutoPilot" method="_on_health_died"]

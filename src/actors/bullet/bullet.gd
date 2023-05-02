@@ -21,6 +21,9 @@ func _ready() -> void:
 	if is_friendly:
 		set_bullet_friendly()
 		
+	$FireAudio.play()
+	$FastAudio.play()
+		
 func set_bullet_friendly() -> void:
 	# collide with enemy instead of player
 	hitbox.set_collision_layer_value(2, true)
@@ -39,5 +42,4 @@ func _on_hit_box_hit() -> void:
 func die() -> void:
 	set_physics_process(false)
 	anim_player.play("explode")
-	anim_player.animation_finished.connect(queue_free.bind(self))
 	

@@ -13,3 +13,6 @@ func _physics_process(delta):
 func activate():
 	is_active = true
 	activated.emit()
+
+func _on_health_died() -> void:
+	$ExplosionAudio.play()

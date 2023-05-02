@@ -7,7 +7,7 @@ extends Node2D
 
 var body: RigidBody2D
 
-@onready var audio := $Audio
+@onready var engine_audio := $EngineAudio
 @onready var drift_audio := $DriftAudio
 
 const drift_audio_angle := 60
@@ -16,15 +16,16 @@ const min_pitch := 0.1
 
 func _ready() -> void:
 	body = owner
-	for child in get_children():
-		if child is AudioStreamPlayer2D:
-			child.playing = enabled
-			child.volume_db = linear_to_db(0.0)
+	
+	engine_audio.playing = enabled
+	engine_audio.volume_db = linear_to_db(0.0)
+	drift_audio.playing = enabled
+	drift_audio.volume_db = linear_to_db(0.0)
 
 func _process(_delta: float) -> void:
 	var speed := body.linear_velocity.length() / max_speed + min_pitch
-	audio.pitch_scale = speed + min_pitch
-	audio.volume_db = linear_to_db(1.0)
+	engine_audio.pitch_scale = speed + min_pitch
+	engine_audio.volume_db = linear_to_db(1.0)
 	
 	# Compute angle difference between where the car is going and where it is facing 
 	var angle_diff = abs(rad_to_deg(body.transform.x.angle_to(body.linear_velocity)))
@@ -40,3 +41,6 @@ func _process(_delta: float) -> void:
 func angle_difference(angle1, angle2):
 	var diff = angle2 - angle1
 	return diff if abs(diff) < 180 else diff + (360 * -sign(diff))
+
+func _on_player_car_died() -> void:
+	$ExplosionAudio.play()
