@@ -13,7 +13,8 @@ config_version=5
 config/name="Drifting Trailer"
 run/main_scene="res://src/menus/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/image="res://spash.png"
+config/icon="res://icon.png"
 
 [autoload]
 
