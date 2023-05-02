@@ -22,7 +22,6 @@ func _ready() -> void:
 		set_bullet_friendly()
 		
 	$FireAudio.play()
-	$FastAudio.play()
 		
 func set_bullet_friendly() -> void:
 	# collide with enemy instead of player
