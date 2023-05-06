@@ -1,5 +1,6 @@
-[gd_scene load_steps=2088 format=3 uid="uid://bscd3w3p6skf3"]
+[gd_scene load_steps=2089 format=3 uid="uid://bscd3w3p6skf3"]
 
+[ext_resource type="Script" path="res://src/level/level.gd" id="1_8v0wl"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/shapes/shape_closed.gd" id="3_8smkf"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/shapes/point_array.gd" id="4_1kbqw"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/vertex_properties.gd" id="4_u6g5c"]
@@ -14608,6 +14609,7 @@ _material_overrides = {}
 
 [node name="Level" type="Node2D"]
 position = Vector2(-610, 780)
+script = ExtResource("1_8v0wl")
 metadata/_edit_vertical_guides_ = []
 
 [node name="RoadShape" type="Node2D" parent="."]
