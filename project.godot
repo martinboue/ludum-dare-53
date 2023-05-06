@@ -11,16 +11,9 @@ config_version=5
 [application]
 
 config/name="Drifting Trailer"
-run/main_scene="res://src/menus/main_menu/main_menu.tscn"
+run/main_scene="res://src/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
-boot_splash/image="res://spash.png"
 config/icon="res://icon.png"
-
-[autoload]
-
-SceneTransition="*res://src/autoload/scene_transition/scene_transition.tscn"
-Score="*res://src/autoload/score/score.gd"
-BackgroundMusic="*res://background_music.tscn"
 
 [display]
 
@@ -29,8 +22,6 @@ window/size/viewport_height=720
 window/size/mode=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
-mouse_cursor/custom_image="res://cross_sign.png"
-mouse_cursor/custom_image_hotspot=Vector2(23, 23)
 
 [editor_plugins]
 

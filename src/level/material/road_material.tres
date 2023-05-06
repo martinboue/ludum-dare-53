@@ -1,0 +1,115 @@
+[gd_resource type="Resource" script_class="SS2D_Material_Shape" load_steps=21 format=3 uid="uid://bfeoufs3yqd86"]
+
+[ext_resource type="Script" path="res://addons/rmsmartshape/materials/edge_material.gd" id="1_e2yrr"]
+[ext_resource type="Texture2D" uid="uid://82qtavt5xcbw" path="res://src/level/assets/road/road_edge.png" id="2_iembw"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/normal_range.gd" id="3_c76sp"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/materials/edge_material_metadata.gd" id="4_0tykj"]
+[ext_resource type="Texture2D" uid="uid://bs60l2mk1aprx" path="res://src/level/assets/road/inner_light_sand.png" id="5_dn0kj"]
+[ext_resource type="Texture2D" uid="uid://c5onv74rqtja3" path="res://src/level/assets/road/outer_light_sand.png" id="6_58eoa"]
+[ext_resource type="Texture2D" uid="uid://bvjf6xaqy3e4j" path="res://src/level/assets/road/tile.png" id="7_upfdm"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/materials/shape_material.gd" id="8_pajs1"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_eucc1"]
+diffuse_texture = ExtResource("2_iembw")
+texture_repeat = 2
+
+[sub_resource type="Resource" id="Resource_xkx8r"]
+script = ExtResource("1_e2yrr")
+textures = Array[Texture2D]([SubResource("CanvasTexture_eucc1")])
+textures_corner_outer = Array[Texture2D]([])
+textures_corner_inner = Array[Texture2D]([])
+textures_taper_left = Array[Texture2D]([])
+textures_taper_right = Array[Texture2D]([])
+randomize_texture = true
+use_corner_texture = false
+use_taper_texture = false
+fit_mode = 0
+
+[sub_resource type="Resource" id="Resource_jaihl"]
+script = ExtResource("3_c76sp")
+begin = 0.0
+distance = 360.0
+edgeRendering = Vector2(0, 0)
+
+[sub_resource type="Resource" id="Resource_t2dfv"]
+script = ExtResource("4_0tykj")
+edge_material = SubResource("Resource_xkx8r")
+normal_range = SubResource("Resource_jaihl")
+weld = true
+render = true
+z_index = 0
+z_as_relative = true
+offset = -1.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_bke7x"]
+diffuse_texture = ExtResource("5_dn0kj")
+texture_repeat = 2
+
+[sub_resource type="Resource" id="Resource_l1cog"]
+script = ExtResource("1_e2yrr")
+textures = Array[Texture2D]([SubResource("CanvasTexture_bke7x")])
+textures_corner_outer = Array[Texture2D]([])
+textures_corner_inner = Array[Texture2D]([])
+textures_taper_left = Array[Texture2D]([])
+textures_taper_right = Array[Texture2D]([])
+randomize_texture = true
+use_corner_texture = false
+use_taper_texture = false
+fit_mode = 0
+
+[sub_resource type="Resource" id="Resource_naced"]
+script = ExtResource("3_c76sp")
+begin = 0.0
+distance = 360.0
+edgeRendering = Vector2(0, 0)
+
+[sub_resource type="Resource" id="Resource_lcadh"]
+script = ExtResource("4_0tykj")
+edge_material = SubResource("Resource_l1cog")
+normal_range = SubResource("Resource_naced")
+weld = true
+render = true
+z_index = 0
+z_as_relative = true
+offset = -0.8
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_tqmmd"]
+diffuse_texture = ExtResource("6_58eoa")
+texture_repeat = 2
+
+[sub_resource type="Resource" id="Resource_4b8m4"]
+script = ExtResource("1_e2yrr")
+textures = Array[Texture2D]([SubResource("CanvasTexture_tqmmd")])
+textures_corner_outer = Array[Texture2D]([])
+textures_corner_inner = Array[Texture2D]([])
+textures_taper_left = Array[Texture2D]([])
+textures_taper_right = Array[Texture2D]([])
+randomize_texture = false
+use_corner_texture = false
+use_taper_texture = false
+fit_mode = 0
+
+[sub_resource type="Resource" id="Resource_d4nfo"]
+script = ExtResource("3_c76sp")
+begin = 0.0
+distance = 360.0
+edgeRendering = Vector2(0, 0)
+
+[sub_resource type="Resource" id="Resource_t6cky"]
+script = ExtResource("4_0tykj")
+edge_material = SubResource("Resource_4b8m4")
+normal_range = SubResource("Resource_d4nfo")
+weld = true
+render = true
+z_index = 0
+z_as_relative = true
+offset = 1.2
+
+[resource]
+script = ExtResource("8_pajs1")
+_edge_meta_materials = Array[ExtResource("4_0tykj")]([SubResource("Resource_t2dfv"), SubResource("Resource_lcadh"), SubResource("Resource_t6cky")])
+fill_textures = Array[Texture2D]([ExtResource("7_upfdm")])
+fill_texture_z_index = -2
+fill_texture_show_behind_parent = false
+fill_mesh_offset = 0.0
+render_offset = 0.0

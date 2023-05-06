@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="SS2D_Material_Shape" load_steps=10 format=3 uid="uid://dtcl1kh8tua5f"]
+
+[ext_resource type="Script" path="res://addons/rmsmartshape/materials/edge_material.gd" id="1_t2sq2"]
+[ext_resource type="Texture2D" uid="uid://dyy852cpqsk7x" path="res://src/level/assets/road/normal_3.png" id="2_j8m8u"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/normal_range.gd" id="4_q28pu"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/materials/edge_material_metadata.gd" id="5_kply7"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/materials/shape_material.gd" id="6_e3bo0"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_1wgma"]
+diffuse_texture = ExtResource("2_j8m8u")
+texture_repeat = 2
+
+[sub_resource type="Resource" id="Resource_bm6rw"]
+script = ExtResource("1_t2sq2")
+textures = Array[Texture2D]([SubResource("CanvasTexture_1wgma")])
+textures_corner_outer = Array[Texture2D]([])
+textures_corner_inner = Array[Texture2D]([])
+textures_taper_left = Array[Texture2D]([])
+textures_taper_right = Array[Texture2D]([])
+randomize_texture = true
+use_corner_texture = false
+use_taper_texture = false
+fit_mode = 0
+
+[sub_resource type="Resource" id="Resource_s7slg"]
+script = ExtResource("4_q28pu")
+begin = 0.0
+distance = 360.0
+edgeRendering = Vector2(0, 0)
+
+[sub_resource type="Resource" id="Resource_jy0ap"]
+script = ExtResource("5_kply7")
+edge_material = SubResource("Resource_bm6rw")
+normal_range = SubResource("Resource_s7slg")
+weld = true
+render = true
+z_index = 0
+z_as_relative = true
+offset = 0.0
+
+[resource]
+script = ExtResource("6_e3bo0")
+_edge_meta_materials = Array[ExtResource("5_kply7")]([SubResource("Resource_jy0ap")])
+fill_textures = Array[Texture2D]([])
+fill_texture_z_index = -2
+fill_texture_show_behind_parent = false
+fill_mesh_offset = 0.0
+render_offset = 0.0

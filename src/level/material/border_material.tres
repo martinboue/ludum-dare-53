@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="SS2D_Material_Shape" load_steps=12 format=3 uid="uid://b8hkj7x1ba41a"]
+
+[ext_resource type="Script" path="res://addons/rmsmartshape/materials/edge_material.gd" id="1_qx0xv"]
+[ext_resource type="Texture2D" uid="uid://dkdex51v08r0g" path="res://src/level/assets/rocks/rocks.png" id="2_yvkmy"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/normal_range.gd" id="3_gejeo"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/materials/edge_material_metadata.gd" id="4_mnjiy"]
+[ext_resource type="Texture2D" uid="uid://8tfl654c3n8r" path="res://src/level/assets/rocks/rock_tile.png" id="5_4nhml"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/materials/shape_material.gd" id="6_2pnhj"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_2nct8"]
+diffuse_texture = ExtResource("2_yvkmy")
+texture_repeat = 2
+
+[sub_resource type="Resource" id="Resource_uce1f"]
+script = ExtResource("1_qx0xv")
+textures = Array[Texture2D]([SubResource("CanvasTexture_2nct8")])
+textures_corner_outer = Array[Texture2D]([])
+textures_corner_inner = Array[Texture2D]([])
+textures_taper_left = Array[Texture2D]([])
+textures_taper_right = Array[Texture2D]([])
+randomize_texture = false
+use_corner_texture = false
+use_taper_texture = false
+fit_mode = 0
+
+[sub_resource type="Resource" id="Resource_5ri7k"]
+script = ExtResource("3_gejeo")
+begin = 0.0
+distance = 360.0
+edgeRendering = Vector2(0, 0)
+
+[sub_resource type="Resource" id="Resource_pcfci"]
+script = ExtResource("4_mnjiy")
+edge_material = SubResource("Resource_uce1f")
+normal_range = SubResource("Resource_5ri7k")
+weld = true
+render = true
+z_index = 21
+z_as_relative = true
+offset = -0.5
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_27es2"]
+diffuse_texture = ExtResource("5_4nhml")
+texture_repeat = 2
+
+[resource]
+script = ExtResource("6_2pnhj")
+_edge_meta_materials = Array[ExtResource("4_mnjiy")]([SubResource("Resource_pcfci")])
+fill_textures = Array[Texture2D]([SubResource("CanvasTexture_27es2")])
+fill_texture_z_index = 20
+fill_texture_show_behind_parent = false
+fill_mesh_offset = 0.0
+render_offset = 1.0

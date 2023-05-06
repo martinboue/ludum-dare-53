@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cer46pylv51t7"]
-
-[ext_resource type="Script" path="res://src/actors/car/drift/drift_mark.gd" id="1_pwco0"]
-
-[node name="DriftMark" type="Line2D"]
-width = 4.0
-default_color = Color(0, 0, 0, 0.196078)
-script = ExtResource("1_pwco0")
