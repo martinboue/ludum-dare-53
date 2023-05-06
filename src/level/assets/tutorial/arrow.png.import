@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8tfl654c3n8r"
-path="res://.godot/imported/rock_tile.png-2e1266f16939845d4914446b80c53777.ctex"
+uid="uid://dc8w6iockoqdv"
+path="res://.godot/imported/arrow.png-cf20d44fc520d49aea867f376c4c0c0f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/actors/level/assets/rocks/rock_tile.png"
-dest_files=["res://.godot/imported/rock_tile.png-2e1266f16939845d4914446b80c53777.ctex"]
+source_file="res://src/level/assets/tutorial/arrow.png"
+dest_files=["res://.godot/imported/arrow.png-cf20d44fc520d49aea867f376c4c0c0f.ctex"]
 
 [params]
 

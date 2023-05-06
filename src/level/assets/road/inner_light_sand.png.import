@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkdex51v08r0g"
-path="res://.godot/imported/rocks.png-3185fca4c5523f9e63f6730cc459fa16.ctex"
+uid="uid://bs60l2mk1aprx"
+path="res://.godot/imported/inner_light_sand.png-914e9f2a359f3cf41feec86e15eb0f82.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/actors/level/assets/rocks/rocks.png"
-dest_files=["res://.godot/imported/rocks.png-3185fca4c5523f9e63f6730cc459fa16.ctex"]
+source_file="res://src/level/assets/road/inner_light_sand.png"
+dest_files=["res://.godot/imported/inner_light_sand.png-914e9f2a359f3cf41feec86e15eb0f82.ctex"]
 
 [params]
 

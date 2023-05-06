@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5onv74rqtja3"
-path="res://.godot/imported/outer_light_sand.png-cccf10dadf54d7a7a5daa4f25f91a58e.ctex"
+uid="uid://bmh7krrf3bnld"
+path="res://.godot/imported/curved_arrow.png-ba8f4224ac74ab5c6f5196c4e4bf61f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/actors/level/assets/road/outer_light_sand.png"
-dest_files=["res://.godot/imported/outer_light_sand.png-cccf10dadf54d7a7a5daa4f25f91a58e.ctex"]
+source_file="res://src/level/assets/tutorial/curved_arrow.png"
+dest_files=["res://.godot/imported/curved_arrow.png-ba8f4224ac74ab5c6f5196c4e4bf61f8.ctex"]
 
 [params]
 

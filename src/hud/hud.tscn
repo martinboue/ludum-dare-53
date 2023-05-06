@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0l2vi6e6wjsp"]
+[gd_scene load_steps=7 format=3 uid="uid://di0fimut0aknw"]
 
 [ext_resource type="Script" path="res://src/actors/debug/fps.gd" id="1_2m8oa"]
 [ext_resource type="Script" path="res://src/hud/hud.gd" id="1_dltuo"]
 [ext_resource type="FontFile" uid="uid://7g6gk26flajs" path="res://src/menus/font.ttf" id="2_syf02"]
 [ext_resource type="Script" path="res://src/hud/announcement/announcement.gd" id="4_7jpoi"]
 [ext_resource type="PackedScene" uid="uid://cgygkfxhplfkx" path="res://src/menus/finish_menu/finish_menu.tscn" id="5_dymcs"]
-[ext_resource type="Script" path="res://src/hud/time.gd" id="7_agfso"]
+[ext_resource type="Script" path="res://src/hud/chrono/chrono.gd" id="6_dlwfb"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_dltuo")
@@ -50,7 +50,7 @@ script = ExtResource("4_7jpoi")
 visible = false
 size_flags_vertical = 1
 
-[node name="Time" type="Label" parent="."]
+[node name="Chrono" type="Label" parent="."]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -61,4 +61,4 @@ offset_bottom = 45.0
 grow_horizontal = 0
 size_flags_horizontal = 0
 text = "60 FPS"
-script = ExtResource("7_agfso")
+script = ExtResource("6_dlwfb")

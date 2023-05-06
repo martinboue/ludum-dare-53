@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmh7krrf3bnld"
-path="res://.godot/imported/curved_arrow.png-bdff7a0b237e01f16191f437c5f7ddc0.ctex"
+uid="uid://dqphqx6mxv6yp"
+path="res://.godot/imported/arrow.png-b3482e334c1b895773fcde917ee8610b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/actors/level/assets/tutorial/curved_arrow.png"
-dest_files=["res://.godot/imported/curved_arrow.png-bdff7a0b237e01f16191f437c5f7ddc0.ctex"]
+source_file="res://src/level/assets/road/arrow.png"
+dest_files=["res://.godot/imported/arrow.png-b3482e334c1b895773fcde917ee8610b.ctex"]
 
 [params]
 

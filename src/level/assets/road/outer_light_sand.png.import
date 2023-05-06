@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dc8w6iockoqdv"
-path="res://.godot/imported/arrow.png-5e0b32cf8799799a97522c5446513b19.ctex"
+uid="uid://c5onv74rqtja3"
+path="res://.godot/imported/outer_light_sand.png-a8c97c9b05a8053a77cc757aa8b63c6d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/actors/level/assets/tutorial/arrow.png"
-dest_files=["res://.godot/imported/arrow.png-5e0b32cf8799799a97522c5446513b19.ctex"]
+source_file="res://src/level/assets/road/outer_light_sand.png"
+dest_files=["res://.godot/imported/outer_light_sand.png-a8c97c9b05a8053a77cc757aa8b63c6d.ctex"]
 
 [params]
 
