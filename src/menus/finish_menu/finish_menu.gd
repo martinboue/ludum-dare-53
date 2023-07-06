@@ -37,4 +37,4 @@ func focus() -> void:
 	$RestartButton.grab_focus()
 
 func _on_restart_button_pressed() -> void:
-	SceneTransition.change_scene("res://main.tscn")
+	SceneTransition.change_scene("res://src/main.tscn")
